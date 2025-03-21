@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midnight Pictures</title>
 			@vite(['resources/css/styles.css'])
-    {{-- <link rel="stylesheet" href="../css/styles.css"> --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -25,9 +24,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/studio">Our Studio</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -264,10 +264,7 @@
         </div>
     </div>
 
-
 		@vite([
-			'resources/js/portfolio.js',
-			'resources/js/project.js',
 			'resources/js/script.js',
 		])
 </body>

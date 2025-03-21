@@ -18,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/','App\Http\Controllers\HomePageController@index')->name('index');
+
+Route::get('/about-us','App\Http\Controllers\AboutPageController@index')->name('about');
+
+Route::get('/portfolio','App\Http\Controllers\PortfolioPageController@index')->name('portfolio');
+
+Route::get('/our-studio','App\Http\Controllers\StudioPageController@index')->name('studio');
