@@ -45,52 +45,6 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <!-- <section id="categories" class="categories">
-        <div class="category-container">
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')"></div>
-                    <div class="category-text">
-                        <h3>FILMS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')"></div>
-                    <div class="category-text">
-                        <h3>MUSIC VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')"></div>
-                    <div class="category-text">
-                        <h3>COMMERCIAL VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')"></div>
-                    <div class="category-text">
-                        <h3>LIVE COVERAGE</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')"></div>
-                    <div class="category-text">
-                        <h3>CORPORATE VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Categories Accordion Section -->
     <section id="categories" class="categories">
         <div class="category-container">
@@ -133,35 +87,6 @@
                         <h3>CORPORATE VIDEOS</h3>
                     </div>
                 </a>
-            </div>
-        </div>
-    </section>
-    <!-- Featured Project Section -->
-    <section class="featured-project">
-        <div class="project-container">
-            <div class="project-image" style="background-image: url('https://ext.same-assets.com/3128301168/2430939757.jpeg')"></div>
-            <div class="project-title">
-                <h2>SakisPack S.A. – Corporate Video</h2>
-            </div>
-        </div>
-        <div class="project-pagination">
-            <!-- Pagination dots -->
-            <div class="pagination-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
             </div>
         </div>
     </section>
