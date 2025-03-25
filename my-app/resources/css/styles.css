@@ -26,11 +26,11 @@ a {
 }
 
 a:hover {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 .highlight {
-    color: #e9080c;
+    color: #E3FF04;
     font-weight: bold;
 }
 
@@ -123,7 +123,7 @@ header {
 }
 
 .mobile-toggle:hover {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 nav ul {
@@ -143,7 +143,7 @@ nav ul li a {
 }
 
 nav ul li a.active {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 /* Hero Video Section */
@@ -239,7 +239,7 @@ nav ul li a.active {
 }
 
 .category:hover .category-text {
-    background: rgba(233, 8, 12, 0.7);
+    background: rgba(227, 255, 4, 0.4);
 }
 
 .category-text h3 {
@@ -415,8 +415,8 @@ nav ul li a.active {
 }
 
 .submit-btn {
-    background-color: #e9080c;
-    color: #fff;
+    background-color: #E3FF04;
+    color: #000;
     border: none;
     padding: 15px 40px;
     font-size: 16px;
@@ -426,7 +426,7 @@ nav ul li a.active {
 }
 
 .submit-btn:hover {
-    background-color: #b50609;
+    background-color: #79832d;
 }
 
 /* Footer Styles */
@@ -475,7 +475,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 /* Project Lightbox */
@@ -561,8 +561,8 @@ footer {
 }
 
 .btn-ok {
-    background-color: #e9080c;
-    color: #fff;
+    background-color: #E3FF04;
+    color: #000;
 }
 
 .btn-learn {
@@ -697,7 +697,7 @@ footer {
 }
 
 .service i {
-    color: #e9080c;
+    color: #E3FF04;
     margin-bottom: 20px;
 }
 
@@ -862,7 +862,7 @@ footer {
 }
 
 .search-box button:hover {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 /* Project Hero Styles */
@@ -968,7 +968,7 @@ footer {
 .project-details ul li strong {
     width: 100px;
     display: inline-block;
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 .project-description h3 {
@@ -1159,7 +1159,7 @@ footer {
 }
 
 .project-navigation a:hover {
-    color: #e9080c;
+    color: #E3FF04;
 }
 
 .prev-project i,
@@ -1207,7 +1207,7 @@ footer {
 
     nav {
         position: fixed;
-        top: 70px;
+        top: 68px;
         right: -100%;
         width: 250px;
         height: calc(100vh - 70px);
@@ -1402,7 +1402,7 @@ footer {
 }
 
 .category:hover .category-text {
-    background: rgba(233, 8, 12, 0.7);
+    background: rgba(227, 255, 4, 0.4);
 }
 
 .category-text h3 {
@@ -1435,6 +1435,10 @@ footer {
 
     .category:hover {
         flex-basis: 100%;
+    }
+
+    .logo img {
+            height: 15px;
     }
 }
 
