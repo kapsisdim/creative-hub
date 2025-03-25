@@ -20,6 +20,8 @@ RUN `docker-compose exec app php artisan storage:link`
 
 RUN `docker-compose exec app php npm install`
 
+RUN `docker-compose exec app php npm run build`
+
 # DB setup guide
 
 RUN `docker exec -it mysql bash`
