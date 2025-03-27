@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midnight Pictures</title>
+    <title>Hakuna Creative Hub</title>
 			@vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Midnight Pictures"></a>
+            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Hakuna Creative Hub"></a>
         </div>
         <div class="mobile-toggle">
             <i class="fa fa-bars" aria-hidden="true"></i>
@@ -25,8 +25,8 @@
         <nav>
             <ul>
                 <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/studio">Our Studio</a></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/our-studio">Our Studio</a></li>
                 <li><a href="/portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -94,7 +94,7 @@
     <!-- About Section -->
     <section class="about">
         <div class="about-content">
-            <p>We are a <span class="highlight">production company</span>, based in Athens, Greece. Our passion for <span class="highlight">creation</span> is what pushes us to achieve the best result for every project we take over. Our work contains commercials, music videos, films and corporate videos. We have the <span class="highlight">expertise</span> of filmmaking. We create <span class="highlight">memories</span>. We are Midnight Pictures.</p>
+            <p>We are a <span class="highlight">production company</span>, based in Athens, Greece. Our passion for <span class="highlight">creation</span> is what pushes us to achieve the best result for every project we take over. Our work contains commercials, music videos, films and corporate videos. We have the <span class="highlight">expertise</span> of filmmaking. We create <span class="highlight">memories</span>. We are Hakuna Creative Hub.</p>
 
             <div class="divider">
                 <span class="divider-line"></span>
@@ -147,9 +147,6 @@
                     <textarea name="message" id="message" placeholder="YourMessage" required></textarea>
                 </div>
                 <div class="form-group captcha">
-                    <p>Please prove that you are human by solving the equation</p>
-                    <label for="captcha">4 + 3 = ?</label>
-                    <input type="text" name="captcha" id="captcha" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="submit-btn">Send</button>
@@ -162,7 +159,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-logo">
-                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Midnight Pictures">
+                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Hakuna Creative Hub">
             </div>
         </div>
         <div class="footer-bottom">
@@ -171,7 +168,7 @@
                 <p><span>info@midnightpictures.gr</span></p>
             </div>
             <div class="copyright">
-                <p>Copyright © 2025 • Midnight Pictures • Proudly developed by Promaco Media Group • All rights reserved</p>
+                <p>Copyright © 2025 • Hakuna Creative Hub • Proudly developed by Promaco Media Group • All rights reserved</p>
             </div>
             <div class="footer-links">
                 <a href="#">Cookies Policy</a>

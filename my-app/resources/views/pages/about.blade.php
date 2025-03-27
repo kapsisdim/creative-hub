@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Midnight Pictures</title>
+    <title>About - Hakuna Creative Hub</title>
 			@vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Midnight Pictures"></a>
+            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Hakuna Creative Hub"></a>
         </div>
         <div class="mobile-toggle">
             <i class="fa fa-bars" aria-hidden="true"></i>
@@ -45,14 +45,14 @@
         <div class="about-page-content">
             <div class="about-section">
                 <h2>Our Story</h2>
-                <p>Midnight Pictures is a production company based in Athens, Greece. We were founded with a simple vision: to create unforgettable visual stories that resonate with audiences. Since our inception, we have grown to become one of the leading production houses in Greece, with a portfolio spanning from short films to commercial videos for international brands.</p>
+                <p>Hakuna Creative Hub is a production company based in Athens, Greece. We were founded with a simple vision: to create unforgettable visual stories that resonate with audiences. Since our inception, we have grown to become one of the leading production houses in Greece, with a portfolio spanning from short films to commercial videos for international brands.</p>
                 <p>Our journey began with a small team of dedicated filmmakers who shared a passion for storytelling. Today, we've expanded our team to include some of the best talents in the industry, but our core values remain the same – commitment to quality, artistic integrity, and client satisfaction.</p>
             </div>
 
             <div class="about-section">
                 <h2>Our Philosophy</h2>
                 <p>We believe that great filmmaking comes from a blend of technical excellence and creative vision. Our approach to every project is centered around understanding the unique requirements and goals of our clients, and then bringing that vision to life with our expertise.</p>
-                <p>At Midnight Pictures, we don't just create videos – we create experiences. Whether it's a music video that captures the essence of an artist's sound, a corporate video that effectively communicates a brand's message, or a film that tells a compelling story, our goal is always to leave a lasting impression.</p>
+                <p>At Hakuna Creative Hub, we don't just create videos – we create experiences. Whether it's a music video that captures the essence of an artist's sound, a corporate video that effectively communicates a brand's message, or a film that tells a compelling story, our goal is always to leave a lasting impression.</p>
             </div>
 
             <div class="about-section">
@@ -131,9 +131,6 @@
                     <textarea name="message" id="message" placeholder="YourMessage" required></textarea>
                 </div>
                 <div class="form-group captcha">
-                    <p>Please prove that you are human by solving the equation</p>
-                    <label for="captcha">4 + 3 = ?</label>
-                    <input type="text" name="captcha" id="captcha" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="submit-btn">Send</button>
@@ -146,16 +143,16 @@
     <footer>
         <div class="footer-top">
             <div class="footer-logo">
-                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Midnight Pictures">
+                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Hakuna Creative Hub">
             </div>
         </div>
         <div class="footer-bottom">
             <div class="contact-info">
-                <p><span>(+30) 210 220 7435</span></p>
-                <p><span>info@midnightpictures.gr</span></p>
+                <p><span>(+30) 210 221 2222</span></p>
+                <p><span>info@hakunacreativehub.com</span></p>
             </div>
             <div class="copyright">
-                <p>Copyright © 2025 • Midnight Pictures • Proudly developed by Promaco Media Group • All rights reserved</p>
+                <p>Copyright © <?= date("Y") ?> • Hakuna Creative Hub • All rights reserved</p>
             </div>
             <div class="footer-links">
                 <a href="#">Cookies Policy</a>
