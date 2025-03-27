@@ -259,21 +259,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Form validation
-    const contactForm = document.querySelector('.contact-form form');
+    // const contactForm = document.querySelector('.contact-form form');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    // if (contactForm) {
+    //     contactForm.addEventListener('submit', function(e) {
+    //         e.preventDefault();
 
-            const captchaInput = document.getElementById('captcha');
-            const captchaValue = captchaInput.value.trim();
+    //         const captchaInput = document.getElementById('captcha');
+    //         const captchaValue = captchaInput.value.trim();
 
-            if (captchaValue === '7') {
-                alert('Form submitted successfully! (This is a demo)');
-                this.reset();
-            } else {
-                alert('Please solve the captcha correctly.');
-            }
-        });
-    }
+    //         if (captchaValue === '7') {
+    //             alert('Form submitted successfully! (This is a demo)');
+    //             this.reset();
+    //         } else {
+    //             alert('Please solve the captcha correctly.');
+    //         }
+    //     });
+    // }
 });
