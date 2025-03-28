@@ -44,8 +44,6 @@ class PortfolioCategoriesCrudController extends CrudController
             'label' => "Category Image",
             'name' => "main_image.image",
             'type' => 'image',
-            // 'view' => 'vendor/backpack/partials/image',
-            // 'upload' => true,
         ]);
         CRUD::column('title');
         CRUD::column('created_at');
