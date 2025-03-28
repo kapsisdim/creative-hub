@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('portfolio_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug');
+            $table->integer('parent_id')->nullable()->default(0);
+            $table->integer('lft')->nullable()->default(0);
+            $table->integer('rgt')->nullable()->default(0);
+            $table->integer('depth')->nullable()->default(0);
+            $table->unsignedBigInteger('main_image_id');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('portfolio_categories');
+    }
+};
