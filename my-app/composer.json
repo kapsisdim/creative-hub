@@ -7,7 +7,10 @@
     "require": {
         "php": "^8.0.2",
         "backpack/crud": "^5.6",
+        "backpack/pro": "^1.6",
+        "cviebrock/eloquent-sluggable": "^9.0",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
@@ -63,5 +66,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "backpack": {
+            "type": "composer",
+            "url": "https://repo.backpackforlaravel.com/"
+        }
+    }
 }

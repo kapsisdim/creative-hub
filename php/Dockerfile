@@ -28,12 +28,13 @@ RUN apt-get update && apt-get -y install --fix-missing \
 RUN docker-php-ext-install \
         exif
 
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+RUN install-php-extensions gd
+
 # Install Postgre PDO
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_mysql pdo_pgsql pgsql opcache zip
-
-RUN docker-php-ext-install \
-exif
 
 # Install important libraries
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
