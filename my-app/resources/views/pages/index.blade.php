@@ -34,7 +34,7 @@
     </header>
 
     <!-- Hero Video Section -->
-    <section class="hero">
+    {{-- <section class="hero">
         <div class="hero-video">
             <video autoplay muted loop>
                 <source src="https://ext.same-assets.com/2624457371/3530428594.mp4" type="video/mp4">
@@ -42,6 +42,37 @@
             <div class="scroll-down">
                 <a href="#categories"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
             </div>
+        </div>
+    </section> --}}
+
+    <section class="hero">
+        {{-- <div style="position:relative; width:100%; height:0px; padding-bottom:57.500%">
+            <iframe allow="fullscreen;autoplay"
+                    allowfullscreen height="100%"
+                    src="https://streamable.com/e/khupxo?autoplay=1&muted=1"
+                    width="100%"
+                    style="
+                        border:none;
+                        width:100%;
+                        height:100%;
+                        position:absolute;
+                        left:0px;
+                        top:0px;
+                        overflow:hidden;"
+                    >
+            </iframe>
+        </div> --}}
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/zp4k7Rym39c?autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="scroll-down">
+            <a href="#categories"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
         </div>
     </section>
 

@@ -6,4 +6,12 @@
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-items') }}"><i class="nav-icon la la-bars"></i> Menu items</a></li>
 
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('home-page') }}"><i class="nav-icon la la-home"></i> Home page</a></li>
+
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-categories') }}"><i class="nav-icon la la-sitemap"></i> Portfolio categories</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="nav-icon la la-hammer"></i> Clients</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('legal') }}"><i class="nav-icon la la-text"></i> Legals</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-info-circle"></i> Info</a></li>

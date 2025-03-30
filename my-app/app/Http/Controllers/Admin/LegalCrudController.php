@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ImageUploadRequest;
+use App\Http\Requests\LegalRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ImageUploadCrudController
+ * Class LegalCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ImageUploadCrudController extends CrudController
+class LegalCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class ImageUploadCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\ImageUpload::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/image-uploads');
-        CRUD::setEntityNameStrings('image upload', 'image uploads');
+        CRUD::setModel(\App\Models\Legal::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/legal');
+        CRUD::setEntityNameStrings('legal', 'legals');
     }
 
     /**
@@ -39,12 +39,30 @@ class ImageUploadCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
+        CRUD::addcolumn([
+            'name' => 'term_type',
+            'label' => 'Type',
+            'type' => 'select_from_array',
+            'options' => [
+                'conditions' => 'Terms and Conditions',
+                'privacy' => 'Privacy Policy',
+                'cookies' => 'Cookies Policy',
+                'shipping' => 'Shipping Policy',
+                'payment' => 'Payment Policy',
+                'return' => 'Return Policy',
+            ]
         ]);
         CRUD::column('title');
+        CRUD::addField([
+            'name' => 'body',
+            'label' => 'Body',
+            'type' => 'ckeditor',
+            'options'       => [
+                'autoGrow_minHeight'   => 200,
+                'autoGrow_bottomSpace' => 50,
+                'removePlugins'        => 'resize,maximize',
+            ]
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -61,25 +79,33 @@ class ImageUploadCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ImageUploadRequest::class);
+        CRUD::setValidation(LegalRequest::class);
 
         CRUD::addField([
-            'name' => 'title',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
+            'name' => 'term_type',
+            'label' => 'Type',
+            'type' => 'select_from_array',
+            'options' => [
+                'conditions' => 'Terms and Conditions',
+                'privacy' => 'Privacy Policy',
+                'cookies' => 'Cookies Policy',
+                'shipping' => 'Shipping Policy',
+                'payment' => 'Payment Policy',
+                'return' => 'Return Policy',
+            ]
         ]);
+        CRUD::addField('title');
         CRUD::addField([
-            'label'        => "Image",
-            'name'         => "image",
-            'type'         => 'image',
-            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'withFiles' => [
-                'disk' => 'public', // the disk where file will be stored
-                'path' => 'images', // the path inside the disk where file will be stored
-            ],
+            'name' => 'body',
+            'label' => 'Body',
+            'type' => 'ckeditor',
+            'options'       => [
+                'autoGrow_minHeight'   => 200,
+                'autoGrow_bottomSpace' => 50,
+                'removePlugins'        => 'resize,maximize',
+            ]
         ]);
+
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -97,26 +123,5 @@ class ImageUploadCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    /**
-     * Define what happens when the Show operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-show
-     * @return void
-     */
-    protected function setupShowOperation()
-    {
-        CRUD::addColumn([
-            'name' => 'title',
-            'type' => 'text',
-        ]);
-        CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
-        ]);
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
     }
 }
