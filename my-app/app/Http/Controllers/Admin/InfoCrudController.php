@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ImageUploadRequest;
+use App\Http\Requests\InfoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ImageUploadCrudController
- * @package App\Http\Controllers\Admin
+ * Class Info.
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ImageUploadCrudController extends CrudController
+class InfoCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +25,9 @@ class ImageUploadCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\ImageUpload::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/image-uploads');
-        CRUD::setEntityNameStrings('image upload', 'image uploads');
+        $this->crud->setModel(\App\Models\Info::class);
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/info');
+        $this->crud->setEntityNameStrings('Info', 'Info');
     }
 
     /**
@@ -39,14 +38,12 @@ class ImageUploadCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
-        ]);
-        CRUD::column('title');
+        $this->crud->column('address');
+        $this->crud->column('city');
+        $this->crud->column('phone');
+        $this->crud->column('email');
 
-        /**
+        /*
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
@@ -61,27 +58,14 @@ class ImageUploadCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ImageUploadRequest::class);
+        $this->crud->setValidation(InfoRequest::class);
 
-        CRUD::addField([
-            'name' => 'title',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'label'        => "Image",
-            'name'         => "image",
-            'type'         => 'image',
-            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'withFiles' => [
-                'disk' => 'public', // the disk where file will be stored
-                'path' => 'images', // the path inside the disk where file will be stored
-            ],
-        ]);
+        $this->crud->field('address');
+        $this->crud->field('city');
+        $this->crud->field('phone');
+        $this->crud->field('email');
 
-        /**
+        /*
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number']));
@@ -97,26 +81,5 @@ class ImageUploadCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    /**
-     * Define what happens when the Show operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-show
-     * @return void
-     */
-    protected function setupShowOperation()
-    {
-        CRUD::addColumn([
-            'name' => 'title',
-            'type' => 'text',
-        ]);
-        CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
-        ]);
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
     }
 }
