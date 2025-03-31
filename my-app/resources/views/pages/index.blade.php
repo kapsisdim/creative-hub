@@ -64,7 +64,7 @@
         </div> --}}
         <div class="video-container">
             <iframe
-                src="https://www.youtube.com/embed/zp4k7Rym39c?autoplay=1&mute=1"
+                src="https://www.youtube.com/embed/zp4k7Rym39c?autoplay=1&loop=1&mute=1&playlist=zp4k7Rym39c"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
