@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ImageUploadRequest;
+use App\Http\Requests\HomePageRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ImageUploadCrudController
+ * Class HomePageCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ImageUploadCrudController extends CrudController
+class HomePageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class ImageUploadCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\ImageUpload::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/image-uploads');
-        CRUD::setEntityNameStrings('image upload', 'image uploads');
+        CRUD::setModel(\App\Models\HomePage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/home-page');
+        CRUD::setEntityNameStrings('home page', 'home page');
     }
 
     /**
@@ -41,10 +41,13 @@ class ImageUploadCrudController extends CrudController
     {
         CRUD::addColumn([
             'label' => 'Image',
-            'name' => 'image',
+            'name' => 'logo_image',
             'type' => 'image',
         ]);
         CRUD::column('title');
+        CRUD::column('main_video_link');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -61,7 +64,7 @@ class ImageUploadCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ImageUploadRequest::class);
+        CRUD::setValidation(HomePageRequest::class);
 
         CRUD::addField([
             'name' => 'title',
@@ -70,8 +73,14 @@ class ImageUploadCrudController extends CrudController
             ],
         ]);
         CRUD::addField([
-            'label'        => "Image",
-            'name'         => "image",
+            'name' => 'main_video_link',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
+        CRUD::addField([
+            'label'        => "Logo Image",
+            'name'         => "logo_image",
             'type'         => 'image',
             'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
             'crop'         => true, // set to true to allow cropping, false to disable
@@ -79,6 +88,45 @@ class ImageUploadCrudController extends CrudController
                 'disk' => 'public', // the disk where file will be stored
                 'path' => 'images', // the path inside the disk where file will be stored
             ],
+        ]);
+        CRUD::addField([
+            'label'        => "Contact us background Image",
+            'name'         => "contact_us_background_image",
+            'type'         => 'image',
+            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
+            'crop'         => true, // set to true to allow cropping, false to disable
+            'withFiles' => [
+                'disk' => 'public', // the disk where file will be stored
+                'path' => 'images', // the path inside the disk where file will be stored
+            ],
+        ]);
+        CRUD::addField([
+            'label'        => "We create background Image",
+            'name'         => "we_create_background_image",
+            'type'         => 'image',
+            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
+            'crop'         => true, // set to true to allow cropping, false to disable
+            'withFiles' => [
+                'disk' => 'public', // the disk where file will be stored
+                'path' => 'images', // the path inside the disk where file will be stored
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'we_create_title',
+            'type'         => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'we_create_text',
+            'label' => 'Body',
+            'type' => 'ckeditor',
+            'options'       => [
+                'autoGrow_minHeight'   => 200,
+                'autoGrow_bottomSpace' => 50,
+                'removePlugins'        => 'resize,maximize',
+            ]
         ]);
 
         /**
@@ -97,26 +145,5 @@ class ImageUploadCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    /**
-     * Define what happens when the Show operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-show
-     * @return void
-     */
-    protected function setupShowOperation()
-    {
-        CRUD::addColumn([
-            'name' => 'title',
-            'type' => 'text',
-        ]);
-        CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'image',
-            'type' => 'image',
-        ]);
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
     }
 }

@@ -1,2 +1,7 @@
 /mysql/data/*
 /mysql/data
+.htaccess
+build/
+index.php
+my-app/error_log
+packages/
