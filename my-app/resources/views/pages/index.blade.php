@@ -22,15 +22,56 @@
         <div class="mobile-toggle">
             <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <nav>
+        <nav class="menu-desktop">
             <ul>
                 <li><a href="/" class="active">Home</a></li>
                 <li><a href="/about-us">About Us</a></li>
                 <li><a href="/our-studio">Our Studio</a></li>
                 <li><a href="/portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li>
+                <div class="social-divider">|</div>
+                </li>
+                <div class="social-icons">
+                    <li>
+                        <a href="#"  title="facebook">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="twitter">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="instagram">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="youtube">
+                            <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </div>
             </ul>
+            {{-- <div style = "padding-right: 10px;">|</div>
+            <div class="social-icons">
+                <a href="#"  title="facebook">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                </a>
+                <a href="#" title="twitter">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                </a>
+                <a href="#" title="instagram">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" title="youtube">
+                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                </a>
+            </div> --}}
         </nav>
+
     </header>
 
     <!-- Hero Video Section -->
@@ -79,66 +120,103 @@
     <!-- Categories Accordion Section -->
     <section id="categories" class="categories">
         <div class="category-container">
-            <div class="category">
-                <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')"></div>
+            <a href="#">
+                <div class="category" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')">
                     <div class="category-text">
+                        <h3>FILMS</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="category" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')">
+                    <div class="category-text">
+                        <h3>CORPORATE VIDEOS</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="category" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')">
+                    <div class="category-text">
+                        <h3>LIVE COVERAGE</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="category" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')">
+                    <div class="category-text">
+                        <h3>COMMERCIAL VIDEOS</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="category" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')">
+                    <div class="category-text">
+                        <h3>MUSIC VIDEOS</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- New Test Categories Accordion Section -->
+    {{-- <section id="categories" class="categories">
+        <div class="category-container">
+            <div class="category" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')">
+                <a href="#">
+                    <div class="category-overlay">
                         <h3>FILMS</h3>
                     </div>
                 </a>
             </div>
-            <div class="category">
+            <div class="category" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')">
                 <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')"></div>
-                    <div class="category-text">
+                    <div class="category-overlay">
                         <h3>MUSIC VIDEOS</h3>
                     </div>
                 </a>
             </div>
-            <div class="category">
+            <div class="category" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')">
                 <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')"></div>
-                    <div class="category-text">
+                    <div class="category-overlay">
                         <h3>COMMERCIAL VIDEOS</h3>
                     </div>
                 </a>
             </div>
-            <div class="category">
+            <div class="category" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')">
                 <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')"></div>
-                    <div class="category-text">
+                    <div class="category-overlay">
                         <h3>LIVE COVERAGE</h3>
                     </div>
                 </a>
             </div>
-            <div class="category">
+            <div class="category" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')">
                 <a href="#">
-                    <div class="category-bg" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')"></div>
-                    <div class="category-text">
+                    <div class="category-overlay">
                         <h3>CORPORATE VIDEOS</h3>
                     </div>
                 </a>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- About Section -->
     <section class="about">
         <div class="about-content">
+            <div class="create-text">
+                <h2>We create</h2>
+            </div>
+            {{-- <div class="divider">
+                <span class="divider-line"></span>
+            </div> --}}
+
             <p>We are a <span class="highlight">production company</span>, based in Athens, Greece. Our passion for <span class="highlight">creation</span> is what pushes us to achieve the best result for every project we take over. Our work contains commercials, music videos, films and corporate videos. We have the <span class="highlight">expertise</span> of filmmaking. We create <span class="highlight">memories</span>. We are Hakuna Creative Hub.</p>
 
-            <div class="divider">
-                <span class="divider-line"></span>
-            </div>
-
-            <div class="create-text">
-                <h3>We create</h3>
-            </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section class="clients">
+    {{-- <section class="clients">
         <div class="section-title">
             <h2>Our Clients</h2>
             <p>We are working hard for your best results</p>
@@ -159,8 +237,66 @@
                 <img src="https://ext.same-assets.com/2667006718/2761886605.png" alt="Above The Hood">
             </div>
         </div>
-    </section>
+    </section> --}}
 
+{{-- CLients new --}}
+    <section class="clients">
+        <div class="section-title">
+            <h2>Our Clients</h2>
+            <p>We are working hard for your best results</p>
+        </div>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
+                </div>
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+{{--  --}}
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="section-title">
@@ -197,6 +333,20 @@
             <div class="contact-info">
                 <p><span>(+30) 210 220 7435</span></p>
                 <p><span>info@midnightpictures.gr</span></p>
+                <div class="social-icons">
+                    <a href="#"  title="facebook">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" title="twitter">
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" title="instagram">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" title="youtube">
+                        <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
             <div class="copyright">
                 <p>Copyright © 2025 • Hakuna Creative Hub • Proudly developed by Promaco Media Group • All rights reserved</p>
