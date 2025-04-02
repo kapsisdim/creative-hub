@@ -6,9 +6,9 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\Storage;
 
-class PortfolioCategory extends Model
+class Project extends Model
 {
     use CrudTrait;
     use HasFactory, Sluggable;
@@ -18,16 +18,19 @@ class PortfolioCategory extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $casts = [
-        'images' => 'array'
-    ];
-    protected $table = 'portfolio_categories';
+
+    protected $table = 'projects';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
         'title',
+        'description',
+        'body',
+        'video',
         'slug',
+        'status',
+        'category_id',
         'main_image_id',
         'images',
     ];
@@ -65,7 +68,7 @@ class PortfolioCategory extends Model
      */
     public function getImageUploads()
     {
-        return $this->belongsToMany(ImageUpload::class, 'image_uploads_portfolio_categories');
+        return $this->belongsToMany(ImageUpload::class, 'image_uploads_rojects');
     }
 
     /**
@@ -74,6 +77,14 @@ class PortfolioCategory extends Model
     public function main_image()
     {
         return $this->belongsTo(ImageUpload::class, 'main_image_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(PortfolioCategory::class, 'category_id', 'id');
     }
 
     /*

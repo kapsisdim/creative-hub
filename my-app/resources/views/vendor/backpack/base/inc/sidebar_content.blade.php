@@ -15,3 +15,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('legal') }}"><i class="nav-icon la la-text"></i> Legals</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-info-circle"></i> Info</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-question"></i> Projects</a></li>
