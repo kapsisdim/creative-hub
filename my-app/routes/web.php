@@ -23,4 +23,6 @@ Route::get('/about-us','App\Http\Controllers\AboutPageController@index')->name('
 
 Route::get('/portfolio','App\Http\Controllers\PortfolioPageController@index')->name('portfolio');
 
+Route::get('/portfolio/{project}','App\Http\Controllers\PortfolioPageController@project')->name('project');
+
 Route::get('/our-studio','App\Http\Controllers\StudioPageController@index')->name('studio');

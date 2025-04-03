@@ -55,36 +55,9 @@
                     </li>
                 </div>
             </ul>
-            {{-- <div style = "padding-right: 10px;">|</div>
-            <div class="social-icons">
-                <a href="#"  title="facebook">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                </a>
-                <a href="#" title="twitter">
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                </a>
-                <a href="#" title="instagram">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="#" title="youtube">
-                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
-                </a>
-            </div> --}}
         </nav>
 
     </header>
-
-    <!-- Hero Video Section -->
-    {{-- <section class="hero">
-        <div class="hero-video">
-            <video autoplay muted loop>
-                <source src="https://ext.same-assets.com/2624457371/3530428594.mp4" type="video/mp4">
-            </video>
-            <div class="scroll-down">
-                <a href="#categories"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </section> --}}
 
     <section class="hero">
         {{-- <div style="position:relative; width:100%; height:0px; padding-bottom:57.500%">

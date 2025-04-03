@@ -22,6 +22,7 @@ class ImageUpload extends Model
 
     protected $fillable = [
         'title',
+        'caption',
         'image',
     ];
 

@@ -26,6 +26,7 @@ class ImageUploadRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'caption' => 'required',
             'image' => 'required',
         ];
     }
