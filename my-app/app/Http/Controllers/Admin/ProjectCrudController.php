@@ -50,19 +50,6 @@ class ProjectCrudController extends CrudController
             'label' => 'Category',
             'type' => 'text',
         ]);
-        // CRUD::column([
-        //     'label' => "Project Category",
-        //     'name'      => 'category_id', // the db column for the foreign key
-
-        //     // optional
-        //     // 'entity' should point to the method that defines the relationship in your Model
-        //     // defining entity will make Backpack guess 'model' and 'attribute'
-        //     'entity'    => 'category',
-
-        //     // optional - manually specify the related model and attribute
-        //     'model'     => "App\Models\PortfolioCategory", // related model
-        //     'attribute' => 'title', // foreign key attribute that is shown to user
-        // ]);
 
         CRUD::addColumn([
             'name' => 'status',
