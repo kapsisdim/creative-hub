@@ -45,6 +45,7 @@ class ImageUploadCrudController extends CrudController
             'type' => 'image',
         ]);
         CRUD::column('title');
+        CRUD::column('caption');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -68,6 +69,11 @@ class ImageUploadCrudController extends CrudController
             'wrapper' => [
                 'class' => 'form-group col-md-3',
             ],
+        ]);
+
+        CRUD::addField([
+            'name' => 'caption',
+            'type' => 'textarea'
         ]);
         CRUD::addField([
             'label'        => "Image",

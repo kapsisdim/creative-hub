@@ -1,0 +1,25 @@
+.carousel-container {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+.carousel-wrapper {
+	flex: 2;
+}
+.description {
+	flex: 1;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	color: white;
+	padding: 10px;
+}
+
+@media (max-width: 768px) {
+	#thumbnail-carousel {
+		display: none;
+	}
+	.carousel-container {
+		display: block;
+	}
+}

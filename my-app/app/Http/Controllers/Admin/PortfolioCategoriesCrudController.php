@@ -78,16 +78,6 @@ class PortfolioCategoriesCrudController extends CrudController
             'model'     => "App\Models\ImageUpload", // related model
             'attribute' => 'title', // foreign key attribute that is shown to user
         ]);
-        CRUD::addField([
-            'label' => "Category Images",
-            'name' => "images",
-            'type' => 'select2_multiple',
-            'name' => 'getImageUploads', // the method that defines the relationship in your Model
-            'entity' => 'getImageUploads', // the method that defines the relationship in your Model
-            'attribute' => 'title', // foreign key attribute that is shown to user
-            'model' => "App\Models\ImageUpload", // foreign key model
-            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

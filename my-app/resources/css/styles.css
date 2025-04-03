@@ -597,6 +597,16 @@ footer {
     transform: translateX(-50%);
 }
 
+.project-page {
+    padding: 0 15%;
+    background-color: #131212;
+}
+
+.project-page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* About Page Styles */
 .about-page {
     padding: 80px 15%;
@@ -1301,6 +1311,8 @@ footer {
     .portfolio-gallery {
         padding-left: 5%;
         padding-right: 5%;
+        padding-top: 15%;
+        padding-bottom: 5%;
     }
 
     .page-hero-content h1 {
@@ -1376,9 +1388,9 @@ footer {
 }
 
 /* Hover state - expand width for accordion effect */
-.category:hover {
-    /* flex-basis: 50% !important; */
-}
+/* .category:hover {
+    flex-basis: 50% !important;
+} */
 
 .category-bg {
     height: 100%;
@@ -1466,7 +1478,7 @@ footer {
     height: 150px;
     width: 250px;
 
-    img {
+    :is(img) {
         height: 150px;
         max-width: 250px;
     }
@@ -1475,7 +1487,7 @@ footer {
 .menu-desktop {
     display: flex;
 
-    ul {
+    :is(ul) {
         padding-right: 10px;
     }
 }
@@ -1542,6 +1554,10 @@ footer {
 
     .logo img {
             height: 15px;
+    }
+
+    .hero {
+        height: fit-content;
     }
 }
 

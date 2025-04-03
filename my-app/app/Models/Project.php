@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class PortfolioCategory extends Model
+class Project extends Model
 {
     use CrudTrait;
     use HasFactory, Sluggable;
@@ -18,16 +18,19 @@ class PortfolioCategory extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $casts = [
-        'images' => 'array'
-    ];
-    protected $table = 'portfolio_categories';
+
+    protected $table = 'projects';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
         'title',
+        'description',
+        'body',
+        'video',
         'slug',
+        'status',
+        'category_id',
         'main_image_id',
         'images',
     ];
@@ -61,11 +64,27 @@ class PortfolioCategory extends Model
     */
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function getImageUploads()
+    {
+        return $this->belongsToMany(ImageUpload::class, 'image_uploads_projects');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function main_image()
     {
         return $this->belongsTo(ImageUpload::class, 'main_image_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(PortfolioCategory::class, 'category_id', 'id');
     }
 
     /*
