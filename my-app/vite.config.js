@@ -8,11 +8,11 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/styles.css',
                 'resources/css/carousel.css',
+                'resources/css/project.css',
 
                 // 'resources/js/app.js',
                 // 'resources/js/bootstrap.js',
                 'resources/js/portfolio.js',
-                'resources/js/project.js',
                 'resources/js/script.js'
             ],
             refresh: true,

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project - Hakuna Creative Hub</title>
-    @vite(['resources/css/styles.css', 'resources/css/carousel.css'])
+    @vite(['resources/css/styles.css', 'resources/css/carousel.css', 'resources/css/project.css'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/css/splide.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,6 +35,53 @@
         </nav>
     </header>
 
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+            <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="caption-container">
+            <p id="caption">test test test testr</p>
+            </div>
+
+
+            <div class="column">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            </div>
+            <div class="column">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            </div>
+        </div>
+    </div>
+
     <!-- Project Hero Section -->
     <section class="about-page">
         <div class="carousel-container">
@@ -42,22 +89,34 @@
                 <div id="main-carousel" class="splide" aria-label="Main Carousel">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <li class="splide__slide" data-desc="This is the first image description.">
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 1">
+                            <li class="splide__slide"  onclick="openModal();currentSlide(1)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
+                                <img src="https://picsum.photos/id/1041/800/450" onclick="openModal();currentSlide(1)" alt="Image 1">
                             </li>
-                            <li class="splide__slide" data-desc="This is the second image description.">
+                            <li class="splide__slide" onclick="openModal();currentSlide(2)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 2.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
                                 <img src="https://picsum.photos/id/1041/800/450" alt="Image 2">
                             </li>
-                            <li class="splide__slide" data-desc="This is the third image description.">
+                            <li class="splide__slide" onclick="openModal();currentSlide(3)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 3.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
                                 <img src="https://picsum.photos/id/1041/800/450" alt="Image 3">
                             </li>
-                            <li class="splide__slide" data-desc="This is the fourth image description.">
+                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 4.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
                                 <img src="https://picsum.photos/id/1041/800/450" alt="Image 4">
                             </li>
-                            <li class="splide__slide" data-desc="This is the fifth image description.">
+                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 5.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
                                 <img src="https://picsum.photos/id/1041/800/450" alt="Image 5">
                             </li>
-                            <li class="splide__slide" data-desc="This is the sixth image description.">
+                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
+                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 6.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
                                 <img src="https://picsum.photos/id/1041/800/450" alt="Image 6">
                             </li>
                         </ul>
@@ -66,154 +125,22 @@
                 <div id="thumbnail-carousel" class="splide" aria-label="Thumbnail Carousel">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 1"></li>
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 2"></li>
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 3"></li>
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 4"></li>
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 5"></li>
-                            <li class="splide__slide"><img src="https://picsum.photos/id/1041/800/450" alt="Thumbnail 6"></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="description" id="image-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <br><span class="credit">Photo: Aleksandra Boguslawska</span></div>
+            <div class="description" id="image-description">
+            </div>
         </div>
-        {{-- <div class="carousel">
-            <input type="radio" name="slides" checked="checked" id="slide-1">
-            <input type="radio" name="slides" id="slide-2">
-            <input type="radio" name="slides" id="slide-3">
-            <input type="radio" name="slides" id="slide-4">
-            <input type="radio" name="slides" id="slide-5">
-            <input type="radio" name="slides" id="slide-6">
-            <input type="radio" name="slides" id="slide-7">
-            <input type="radio" name="slides" id="slide-8">
-            <ul class="carousel__slides">
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1041/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Tim Marshall</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1043/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Christian Joudrey</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1044/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Steve Carter</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1045/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Aleksandra Boguslawska</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1049/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Rosan Harmens</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1052/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Annie Spratt</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1052/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Annie Spratt</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="https://picsum.photos/id/1052/800/450" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Annie Spratt</span>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="carousel__thumbnails">
-                <li>
-                    <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-7"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-8"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                </li>
-            </ul>
-        </div> --}}
     </section>
 
     <!-- Project Content Section -->
     <section class="project-page">
-					<div class="about-section">
-							<h2>Southend Promo Clip</h2>
-							<p>Hakuna Creative Hub is a production company based in Athens, Greece. We were founded with a simple vision: to create unforgettable visual stories that resonate with audiences. Since our inception, we have grown to become one of the leading production houses in Greece, with a portfolio spanning from short films to commercial videos for international brands.</p>
-							<p>Our journey began with a small team of dedicated filmmakers who shared a passion for storytelling. Today, we've expanded our team to include some of the best talents in the industry, but our core values remain the same – commitment to quality, artistic integrity, and client satisfaction.</p>
-					</div>
+        <div class="about-section">
+            <h2>Southend Promo Clip</h2>
+            <p>Hakuna Creative Hub is a production company based in Athens, Greece. We were founded with a simple vision: to create unforgettable visual stories that resonate with audiences. Since our inception, we have grown to become one of the leading production houses in Greece, with a portfolio spanning from short films to commercial videos for international brands.</p>
+            <p>Our journey began with a small team of dedicated filmmakers who shared a passion for storytelling. Today, we've expanded our team to include some of the best talents in the industry, but our core values remain the same – commitment to quality, artistic integrity, and client satisfaction.</p>
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -277,11 +204,13 @@
     ])
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/js/splide.min.js"></script>
-
     <script>
+        document.getElementById('image-description').textContent =
+            document.querySelector(`#main-carousel .splide__slide:nth-child(1)`).dataset.desc;
+
         document.addEventListener('DOMContentLoaded', function () {
             var mainCarousel = new Splide('#main-carousel', {
-                type: 'fade',
+                type: 'loop',
                 heightRatio: 0.5,
                 pagination: false,
                 arrows: true,
@@ -306,6 +235,44 @@
                     document.querySelector(`#main-carousel .splide__slide:nth-child(${index + 1})`).dataset.desc;
             });
         });
+    </script>
+    <script>
+        function openModal() {
+        document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+        }
     </script>
 </body>
 </html>
