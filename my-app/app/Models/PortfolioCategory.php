@@ -61,14 +61,6 @@ class PortfolioCategory extends Model
     */
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
-     */
-    public function getImageUploads()
-    {
-        return $this->belongsToMany(ImageUpload::class, 'image_uploads_portfolio_categories');
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function main_image()

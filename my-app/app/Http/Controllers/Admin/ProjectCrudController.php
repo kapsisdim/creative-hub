@@ -45,6 +45,24 @@ class ProjectCrudController extends CrudController
             'type' => 'image',
         ]);
         CRUD::column('title');
+        CRUD::addcolumn([
+            'name' => 'category.title',
+            'label' => 'Category',
+            'type' => 'text',
+        ]);
+        // CRUD::column([
+        //     'label' => "Project Category",
+        //     'name'      => 'category_id', // the db column for the foreign key
+
+        //     // optional
+        //     // 'entity' should point to the method that defines the relationship in your Model
+        //     // defining entity will make Backpack guess 'model' and 'attribute'
+        //     'entity'    => 'category',
+
+        //     // optional - manually specify the related model and attribute
+        //     'model'     => "App\Models\PortfolioCategory", // related model
+        //     'attribute' => 'title', // foreign key attribute that is shown to user
+        // ]);
 
         CRUD::addColumn([
             'name' => 'status',
@@ -74,7 +92,83 @@ class ProjectCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        CRUD::addField([
+            'name' => 'title',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'options'       => [
+                1   => 'Published',
+                0 => 'Draft',
+            ],
+        ]);
+        CRUD::addField([
+            'label' => "Project Category",
+            'type'      => 'select2',
+            'name'      => 'category_id', // the db column for the foreign key
 
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'category',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\PortfolioCategory", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+        ]);
+        CRUD::addField([
+            'name' => 'description',
+            'label' => 'Description',
+            'type' => 'ckeditor',
+            'options'       => [
+                'autoGrow_minHeight'   => 200,
+                'autoGrow_bottomSpace' => 50,
+                'removePlugins'        => 'resize,maximize',
+            ]
+        ]);
+        CRUD::addField([
+            'name' => 'body',
+            'label' => 'Body',
+            'type' => 'ckeditor',
+            'options'       => [
+                'autoGrow_minHeight'   => 200,
+                'autoGrow_bottomSpace' => 50,
+                'removePlugins'        => 'resize,maximize',
+            ]
+        ]);
+        CRUD::field('video');
+        CRUD::addField([
+            'label' => "Project Main Image",
+            'type'      => 'select2',
+            'name'      => 'main_image_id', // the db column for the foreign key
+
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'main_image',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\ImageUpload", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+        ]);
+        CRUD::addField([
+            'label' => "Project Gallery",
+            'name' => "images",
+            'type' => 'select2_multiple',
+            'name' => 'getImageUploads', // the method that defines the relationship in your Model
+            'entity' => 'getImageUploads', // the method that defines the relationship in your Model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+            'model' => "App\Models\ImageUpload", // foreign key model
+            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

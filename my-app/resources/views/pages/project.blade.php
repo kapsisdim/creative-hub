@@ -62,22 +62,26 @@
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-            <div class="caption-container">
+            {{-- <div class="caption-container">
             <p id="caption">test test test testr</p>
-            </div>
+            </div> --}}
 
 
             <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(1)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
             </div>
             <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(2)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit2.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
             </div>
             <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(3)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit3.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
             </div>
             <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(4)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit4.
+                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
             </div>
         </div>
     </div>

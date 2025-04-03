@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Project extends Model
 {
@@ -68,7 +68,7 @@ class Project extends Model
      */
     public function getImageUploads()
     {
-        return $this->belongsToMany(ImageUpload::class, 'image_uploads_rojects');
+        return $this->belongsToMany(ImageUpload::class, 'image_uploads_projects');
     }
 
     /**

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->string('body');
+            $table->longText('description');
+            $table->longText('body');
             $table->string('video')->nullable();
             $table->integer('main_image_id');
             $table->integer('category_id');
