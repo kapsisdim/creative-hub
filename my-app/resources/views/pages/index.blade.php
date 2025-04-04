@@ -188,30 +188,6 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-    {{-- <section class="clients">
-        <div class="section-title">
-            <h2>Our Clients</h2>
-            <p>We are working hard for your best results</p>
-        </div>
-        <div class="client-logos">
-            <div class="logo-row">
-                <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="Puma">
-                <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="Under Armour">
-                <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="Love Radio">
-                <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="Roche">
-                <img src="https://ext.same-assets.com/3646167982/2012324887.png" alt="Yafka">
-            </div>
-            <div class="logo-row">
-                <img src="https://ext.same-assets.com/555512428/4084714911.png" alt="Minos EMI">
-                <img src="https://ext.same-assets.com/285322074/3477253837.png" alt="Panik">
-                <img src="https://ext.same-assets.com/1469198642/3219452567.png" alt="Prosperity">
-                <img src="https://ext.same-assets.com/683193828/3263022082.png" alt="Kromatik Musik">
-                <img src="https://ext.same-assets.com/2667006718/2761886605.png" alt="Above The Hood">
-            </div>
-        </div>
-    </section> --}}
-
 {{-- CLients new --}}
     <section class="clients">
         <div class="section-title">
@@ -274,6 +250,7 @@
     <section id="contact" class="contact">
         <div class="section-title">
             <h2>Contact Us</h2>
+            <p>Contact us and we will reach out to you as soon as possible!</p>
         </div>
         <div class="contact-form">
             <form action="#" method="POST">
