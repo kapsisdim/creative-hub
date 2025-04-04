@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/styles.css',
                 'resources/css/carousel.css',
                 'resources/css/project.css',
+                'resources/css/studio.css',
 
                 // 'resources/js/app.js',
                 // 'resources/js/bootstrap.js',

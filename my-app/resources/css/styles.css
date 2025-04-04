@@ -660,7 +660,7 @@ footer {
     background-size: cover;
     background-position: center;
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 50%;
     transition: all 0.3s ease;
 }
 
