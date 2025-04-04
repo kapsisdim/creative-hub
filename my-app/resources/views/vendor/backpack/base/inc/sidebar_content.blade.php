@@ -17,3 +17,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-info-circle"></i> Info</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-question"></i> Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-service') }}"><i class="nav-icon la la-question"></i> Our services</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('team-member') }}"><i class="nav-icon la la-question"></i> Team members</a></li>
