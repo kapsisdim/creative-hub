@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\OurServiceRequest;
+use App\Http\Requests\SocialRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class OurServiceCrudController
+ * Class SocialCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class OurServiceCrudController extends CrudController
+class SocialCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -26,9 +27,9 @@ class OurServiceCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\OurService::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/our-service');
-        CRUD::setEntityNameStrings('Service', 'our services');
+        CRUD::setModel(\App\Models\Social::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/social');
+        CRUD::setEntityNameStrings('social', 'socials');
     }
 
     /**
@@ -47,7 +48,7 @@ class OurServiceCrudController extends CrudController
             ],
         );
         CRUD::column('title');
-        CRUD::column('description');
+        CRUD::column('link');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,25 +65,11 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(OurServiceRequest::class);
+        CRUD::setValidation(SocialRequest::class);
 
-        CRUD::addField([
-            'name' => 'title',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'icon',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'description',
-            'type' => 'textarea',
-        ]);
-
+        CRUD::field('title');
+        CRUD::field('icon');
+        CRUD::field('link');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

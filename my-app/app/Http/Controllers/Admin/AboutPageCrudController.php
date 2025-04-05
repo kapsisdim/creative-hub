@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\OurServiceRequest;
+use App\Http\Requests\AboutPageRequest;
+use Illuminate\Http\Request;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class OurServiceCrudController
+ * Class AboutPageCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class OurServiceCrudController extends CrudController
+class AboutPageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +27,9 @@ class OurServiceCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\OurService::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/our-service');
-        CRUD::setEntityNameStrings('Service', 'our services');
+        CRUD::setModel(\App\Models\AboutPage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/about-page');
+        CRUD::setEntityNameStrings('about page', 'about pages');
     }
 
     /**
@@ -39,15 +40,9 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addColumn(
-            [   // icon_picker
-                'label'   => "Icon",
-                'name'    => 'icon',
-                'type' => 'customIcon',
-            ],
-        );
         CRUD::column('title');
-        CRUD::column('description');
+        CRUD::column('team_title');
+        CRUD::column('service_title');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,23 +59,49 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(OurServiceRequest::class);
+        CRUD::setValidation(AboutPageRequest::class);
 
         CRUD::addField([
             'name' => 'title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
+            ]
+        ]);
+
+        CRUD::addField([
+            'name' => 'sections',
+            'type'  => 'repeatable',
+            'reorder' => true,
+            'subfields' => [
+                [
+                    'name'    => 'title',
+                    'type'    => 'text',
+                    'label'   => 'Title',
+                ],
+                [
+                    'name' => 'body',
+                    'label' => 'Body',
+                    'type' => 'summernote',
+                    'options'       => [
+                        'minheight' => 150,
+                        'height' => 200
+                    ]
+                ],
             ],
         ]);
+
         CRUD::addField([
-            'name' => 'icon',
+            'name' => 'team_title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ],
+            ]
         ]);
+
         CRUD::addField([
-            'name' => 'description',
-            'type' => 'textarea',
+            'name' => 'service_title',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ]
         ]);
 
         /**
@@ -88,6 +109,25 @@ class OurServiceCrudController extends CrudController
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $request->merge([
+            'sections' => json_encode($data['sections']),
+        ]);
+
+        $AboutPage = \App\Models\AboutPage::create([
+            'title' => $request->input('title'),
+            'sections' => $request->input('sections'),
+            'team_title' => $request->input('team_title'),
+            'service_title' => $request->input('service_title'),
+        ]);
+
+
+        return redirect('admin/about-page');
     }
 
     /**

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\OurServiceRequest;
+use App\Http\Requests\OurStudioPageRequest;
+use Illuminate\Http\Request;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class OurServiceCrudController
+ * Class OurStudioPageCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class OurServiceCrudController extends CrudController
+class OurStudioPageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +27,9 @@ class OurServiceCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\OurService::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/our-service');
-        CRUD::setEntityNameStrings('Service', 'our services');
+        CRUD::setModel(\App\Models\OurStudioPage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/our-studio-page');
+        CRUD::setEntityNameStrings('our studio page', 'our studio pages');
     }
 
     /**
@@ -39,16 +40,8 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addColumn(
-            [   // icon_picker
-                'label'   => "Icon",
-                'name'    => 'icon',
-                'type' => 'customIcon',
-            ],
-        );
         CRUD::column('title');
-        CRUD::column('description');
-
+        CRUD::column('gallery_title');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -64,23 +57,42 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(OurServiceRequest::class);
+        CRUD::setValidation(OurStudioPageRequest::class);
 
         CRUD::addField([
             'name' => 'title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
+            ]
+        ]);
+
+        CRUD::addField([
+            'name' => 'sections',
+            'type'  => 'repeatable',
+            'reorder' => true,
+            'subfields' => [
+                [
+                    'name'    => 'title',
+                    'type'    => 'text',
+                    'label'   => 'Title',
+                ],
+                [
+                    'name' => 'body',
+                    'label' => 'Body',
+                    'type' => 'summernote',
+                    'options'       => [
+                        'minheight' => 150,
+                        'height' => 200
+                    ]
+                ],
             ],
         ]);
+
         CRUD::addField([
-            'name' => 'icon',
+            'name' => 'gallery_title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'description',
-            'type' => 'textarea',
+            ]
         ]);
 
         /**
@@ -88,6 +100,24 @@ class OurServiceCrudController extends CrudController
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $request->merge([
+            'sections' => json_encode($data['sections']),
+        ]);
+
+        $AboutPage = \App\Models\OurStudioPage::create([
+            'title' => $request->input('title'),
+            'sections' => $request->input('sections'),
+            'gallery_title' => $request->input('gallery_title'),
+        ]);
+
+
+        return redirect('admin/our-studio-page');
     }
 
     /**
