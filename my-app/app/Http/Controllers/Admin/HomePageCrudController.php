@@ -44,6 +44,11 @@ class HomePageCrudController extends CrudController
             'name' => 'logo_image',
             'type' => 'image',
         ]);
+        CRUD::addColumn([
+            'label' => 'Image',
+            'name' => 'footer_logo_image',
+            'type' => 'image',
+        ]);
         CRUD::column('title');
         CRUD::column('main_video_link');
         CRUD::column('created_at');
@@ -65,19 +70,6 @@ class HomePageCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(HomePageRequest::class);
-
-        CRUD::addField([
-            'name' => 'title',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'main_video_link',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
         CRUD::addField([
             'label'        => "Logo Image",
             'name'         => "logo_image",
@@ -89,9 +81,10 @@ class HomePageCrudController extends CrudController
                 'path' => 'images', // the path inside the disk where file will be stored
             ],
         ]);
+
         CRUD::addField([
-            'label'        => "Contact us background Image",
-            'name'         => "contact_us_background_image",
+            'label'        => "Footer Logo Image",
+            'name'         => "footer_logo_image",
             'type'         => 'image',
             'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
             'crop'         => true, // set to true to allow cropping, false to disable
@@ -101,31 +94,61 @@ class HomePageCrudController extends CrudController
             ],
         ]);
         CRUD::addField([
-            'label'        => "We create background Image",
-            'name'         => "we_create_background_image",
-            'type'         => 'image',
-            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'withFiles' => [
-                'disk' => 'public', // the disk where file will be stored
-                'path' => 'images', // the path inside the disk where file will be stored
+            'name' => 'title',
+            'wrapper' => [
+                'class' => 'form-group col-md-6',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'main_video_link',
+            'wrapper' => [
+                'class' => 'form-group col-md-6',
             ],
         ]);
         CRUD::addField([
             'name' => 'we_create_title',
             'type'         => 'text',
             'wrapper' => [
-                'class' => 'form-group col-md-3',
+                'class' => 'form-group col-md-6',
             ],
         ]);
         CRUD::addField([
             'name' => 'we_create_text',
-            'label' => 'Body',
-            'type' => 'ckeditor',
+            'label' => 'We Create Body',
+            'type' => 'summernote',
             'options'       => [
-                'autoGrow_minHeight'   => 200,
-                'autoGrow_bottomSpace' => 50,
-                'removePlugins'        => 'resize,maximize',
+                'minheight' => 150,
+                'height' => 200
+            ]
+        ]);
+        CRUD::addField([
+            'name' => 'our_clients_title',
+            'type'         => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-6',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'our_clients_text',
+            'type' => 'summernote',
+            'options'       => [
+                'minheight' => 150,
+                'height' => 200
+            ]
+        ]);
+        CRUD::addField([
+            'name' => 'contact_title',
+            'type'         => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-6',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'contact_text',
+            'type' => 'summernote',
+            'options'       => [
+                'minheight' => 150,
+                'height' => 200
             ]
         ]);
 

@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('title');
             $table->string('main_video_link');
             $table->longText('logo_image');
-            $table->longText('contact_us_background_image');
-            $table->longText('we_create_background_image');
+            $table->longText('footer_logo_image');
             $table->longText('we_create_title');
             $table->longText('we_create_text');
+            $table->longText('our_clients_title');
+            $table->longText('our_clients_text');
+            $table->longText('contact_title');
+            $table->longText('contact_text');
             $table->timestamps();
         });
     }
