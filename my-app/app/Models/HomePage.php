@@ -25,10 +25,13 @@ class HomePage extends Model
         'title',
         'main_video_link',
         'logo_image',
-        'contact_us_background_image',
-        'we_create_background_image',
+        'footer_logo_image',
         'we_create_title',
         'we_create_text',
+        'our_clients_title',
+        'our_clients_text',
+        'contact_title',
+        'contact_text',
     ];
     // protected $hidden = [];
     // protected $dates = [];

@@ -114,21 +114,19 @@ class ProjectCrudController extends CrudController
         CRUD::addField([
             'name' => 'description',
             'label' => 'Description',
-            'type' => 'ckeditor',
+            'type' => 'summernote',
             'options'       => [
-                'autoGrow_minHeight'   => 200,
-                'autoGrow_bottomSpace' => 50,
-                'removePlugins'        => 'resize,maximize',
+                'minheight' => 150,
+                'height' => 200
             ]
         ]);
         CRUD::addField([
             'name' => 'body',
             'label' => 'Body',
-            'type' => 'ckeditor',
+            'type' => 'summernote',
             'options'       => [
-                'autoGrow_minHeight'   => 200,
-                'autoGrow_bottomSpace' => 50,
-                'removePlugins'        => 'resize,maximize',
+                'minheight' => 150,
+                'height' => 200
             ]
         ]);
         CRUD::field('video');
