@@ -4,34 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Hakuna Creative Hub</title>
-			@vite(['resources/css/styles.css', 'resources/css/project.css', 'resources/css/studio.css'])
+    @vite(['resources/css/styles.css', 'resources/css/project.css', 'resources/css/studio.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading-screen">
-        <div class="loader"></div>
-    </div>
-
     <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Hakuna Creative Hub"></a>
-        </div>
-        <div class="mobile-toggle">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about-us">About</a></li>
-                <li><a href="/our-studio" class="active">Studio</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    @include('components.header', [])
 
     <!-- About Hero Section -->
     <section class="page-hero">
@@ -40,7 +19,7 @@
         </div>
     </section>
 
-
+    <!-- myModal Section -->
     <div id="myModal" class="modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
@@ -90,6 +69,7 @@
             </div>
         </div>
     </div>
+
     <!-- About Content Section -->
     <section class="about-page">
         <div class="about-page-content">
@@ -160,60 +140,13 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-        </div>
-        <div class="contact-form">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" id="name" placeholder="Name*" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" id="email" placeholder="E-Mail*" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" id="message" placeholder="YourMessage" required></textarea>
-                </div>
-                <div class="form-group captcha">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="submit-btn">Send</button>
-                </div>
-            </form>
-        </div>
-    </section>
+    @include('components.contact', [])
 
     <!-- Footer Section -->
-    <footer>
-        <div class="footer-top">
-            <div class="footer-logo">
-                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Hakuna Creative Hub">
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="contact-info">
-                <p><span>(+30) 210 220 7435</span></p>
-                <p><span>info@midnightpictures.gr</span></p>
-            </div>
-            <div class="copyright">
-                <p>Copyright © 2025 • Hakuna Creative Hub • All rights reserved</p>
-            </div>
-            <div class="footer-links">
-                <a href="#">Cookies Policy</a>
-                <a href="#">Privacy</a>
-            </div>
-        </div>
-    </footer>
+    @include('components.footer', [])
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner">
-        <p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.</p>
-        <div class="cookie-buttons">
-            <button class="btn-ok">OK</button>
-            <button class="btn-learn">Learn more</button>
-        </div>
-    </div>
+    @include('components.cookies', [])
 
     @vite([
         'resources/js/script.js',
