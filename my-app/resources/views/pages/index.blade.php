@@ -299,7 +299,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>Copyright © 2025 • Hakuna Creative Hub • Proudly developed by Promaco Media Group • All rights reserved</p>
+                <p>Copyright © 2025 • Hakuna Creative Hub • All rights reserved</p>
             </div>
             <div class="footer-links">
                 <a href="#">Cookies Policy</a>
