@@ -19,3 +19,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-question"></i> Projects</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-service') }}"><i class="nav-icon la la-question"></i> Our services</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('team-member') }}"><i class="nav-icon la la-question"></i> Team members</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('about-page') }}"><i class="nav-icon la la-question"></i> About pages</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-studio-page') }}"><i class="nav-icon la la-question"></i> Our studio pages</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('social') }}"><i class="nav-icon la la-question"></i> Socials</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-page') }}"><i class="nav-icon la la-question"></i> Portfolio pages</a></li>

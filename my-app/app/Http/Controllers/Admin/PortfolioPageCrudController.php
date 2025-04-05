@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\OurServiceRequest;
+use App\Http\Requests\PortfolioPageRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class OurServiceCrudController
+ * Class PortfolioPageCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class OurServiceCrudController extends CrudController
+class PortfolioPageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class OurServiceCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\OurService::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/our-service');
-        CRUD::setEntityNameStrings('Service', 'our services');
+        CRUD::setModel(\App\Models\PortfolioPage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/portfolio-page');
+        CRUD::setEntityNameStrings('portfolio page', 'portfolio pages');
     }
 
     /**
@@ -39,15 +39,9 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addColumn(
-            [   // icon_picker
-                'label'   => "Icon",
-                'name'    => 'icon',
-                'type' => 'customIcon',
-            ],
-        );
         CRUD::column('title');
-        CRUD::column('description');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,24 +58,8 @@ class OurServiceCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(OurServiceRequest::class);
-
-        CRUD::addField([
-            'name' => 'title',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'icon',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-        CRUD::addField([
-            'name' => 'description',
-            'type' => 'textarea',
-        ]);
+        $this->crud->setValidation(PortfolioPageRequest::class);
+        CRUD::field('title');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
