@@ -25,9 +25,9 @@ class OurServiceRequest extends FormRequest
     public function rules()
     {
         return [
-					'title',
-					'description',
-					'icon',
+            'title',
+            'description',
+            'icon',
         ];
     }
 

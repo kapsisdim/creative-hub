@@ -32,6 +32,9 @@ class HomePage extends Model
         'our_clients_text',
         'contact_title',
         'contact_text',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
     // protected $hidden = [];
     // protected $dates = [];

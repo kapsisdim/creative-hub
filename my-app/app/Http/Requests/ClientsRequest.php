@@ -25,8 +25,8 @@ class ClientsRequest extends FormRequest
     public function rules()
     {
         return [
-					'title',
-					'image',
+            'title',
+            'image',
         ];
     }
 

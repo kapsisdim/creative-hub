@@ -25,10 +25,13 @@ class AboutPageRequest extends FormRequest
     public function rules()
     {
         return [
-					'title',
-					'sections',
-					'team_title',
-					'service_title',
+            'title',
+            'sections',
+            'team_title',
+            'service_title',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
         ];
     }
 

@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OurStudioPage extends Model
+class ContactFormEntry extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -17,17 +17,17 @@ class OurStudioPage extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'our_studio_pages';
+    protected $table = 'contact_form_entries';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
+
     protected $fillable = [
-        'title',
-        'sections',
-        'gallery_title',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
+        'first_name',
+        'last_name',
+        'email',
+        'message',
+        'mail_sent',
     ];
     // protected $hidden = [];
     // protected $dates = [];

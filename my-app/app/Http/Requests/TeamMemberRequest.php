@@ -25,9 +25,9 @@ class TeamMemberRequest extends FormRequest
     public function rules()
     {
         return [
-					'name',
-					'title',
-					'member_image_id',
+            'name',
+            'title',
+            'member_image_id',
         ];
     }
 
