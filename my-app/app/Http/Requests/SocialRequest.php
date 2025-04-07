@@ -25,9 +25,9 @@ class SocialRequest extends FormRequest
     public function rules()
     {
         return [
-					'title',
-					'icon',
-					'link',
+            'title',
+            'icon',
+            'link',
         ];
     }
 

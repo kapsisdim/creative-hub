@@ -94,7 +94,9 @@
     </section>
 
     <!-- Contact Section -->
-    @include('components.contact', [])
+    @include('components.contact', [
+        'url' => request()->getRequestUri() . '#contact'
+    ])
 
     <!-- Footer Section -->
     @include('components.footer', [])

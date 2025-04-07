@@ -25,9 +25,12 @@ class OurStudioPageRequest extends FormRequest
     public function rules()
     {
         return [
-					'title',
-					'sections',
-					'gallery_title',
+            'title',
+            'sections',
+            'gallery_title',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
         ];
     }
 
