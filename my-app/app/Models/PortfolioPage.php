@@ -23,6 +23,9 @@ class PortfolioPage extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'title',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
     // protected $hidden = [];
     // protected $dates = [];

@@ -4,61 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakuna Creative Hub</title>
-			@vite(['resources/css/styles.css'])
+    @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading-screen">
-        <div class="loader"></div>
-    </div>
-
     <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Hakuna Creative Hub"></a>
-        </div>
-        <div class="mobile-toggle">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-        <nav class="menu-desktop">
-            <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/our-studio">Our Studio</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                <div class="social-divider">|</div>
-                </li>
-                <div class="social-icons">
-                    <li>
-                        <a href="#"  title="facebook">
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="twitter">
-                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="instagram">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="youtube">
-                            <i class="fa fa-youtube-square" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    @include('components.header', [])
 
-    </header>
-
+    <!-- Hero Section -->
     <section class="hero">
         {{-- <div style="position:relative; width:100%; height:0px; padding-bottom:57.500%">
             <iframe allow="fullscreen;autoplay"
@@ -131,64 +85,17 @@
         </div>
     </section>
 
-
-    <!-- New Test Categories Accordion Section -->
-    {{-- <section id="categories" class="categories">
-        <div class="category-container">
-            <div class="category" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')">
-                <a href="#">
-                    <div class="category-overlay">
-                        <h3>FILMS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')">
-                <a href="#">
-                    <div class="category-overlay">
-                        <h3>MUSIC VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')">
-                <a href="#">
-                    <div class="category-overlay">
-                        <h3>COMMERCIAL VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')">
-                <a href="#">
-                    <div class="category-overlay">
-                        <h3>LIVE COVERAGE</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="category" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')">
-                <a href="#">
-                    <div class="category-overlay">
-                        <h3>CORPORATE VIDEOS</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section> --}}
-
     <!-- About Section -->
     <section class="about">
         <div class="about-content">
             <div class="create-text">
                 <h2>We create</h2>
             </div>
-            {{-- <div class="divider">
-                <span class="divider-line"></span>
-            </div> --}}
-
             <p>We are a <span class="highlight">production company</span>, based in Athens, Greece. Our passion for <span class="highlight">creation</span> is what pushes us to achieve the best result for every project we take over. Our work contains commercials, music videos, films and corporate videos. We have the <span class="highlight">expertise</span> of filmmaking. We create <span class="highlight">memories</span>. We are Hakuna Creative Hub.</p>
-
         </div>
     </section>
 
-{{-- CLients new --}}
+    {{-- CLients new --}}
     <section class="clients">
         <div class="section-title">
             <h2>Our Clients</h2>
@@ -245,80 +152,20 @@
             </div>
         </div>
     </section>
-{{--  --}}
+
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Contact us and we will reach out to you as soon as possible!</p>
-        </div>
-        <div class="contact-form">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" id="name" placeholder="Name*" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" id="email" placeholder="E-Mail*" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" id="message" placeholder="YourMessage" required></textarea>
-                </div>
-                <div class="form-group captcha">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="submit-btn">Send</button>
-                </div>
-            </form>
-        </div>
-    </section>
+    @include('components.contact', [
+        'url' => request()->getRequestUri() . '#contact'
+    ])
 
     <!-- Footer Section -->
-    <footer>
-        <div class="footer-top">
-            <div class="footer-logo">
-                <img src="https://ext.same-assets.com/3576190554/1248507383.png" alt="Hakuna Creative Hub">
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="contact-info">
-                <p><span>(+30) 210 220 7435</span></p>
-                <p><span>info@midnightpictures.gr</span></p>
-                <div class="social-icons">
-                    <a href="#"  title="facebook">
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="twitter">
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="instagram">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="youtube">
-                        <i class="fa fa-youtube-square" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>Copyright © 2025 • Hakuna Creative Hub • All rights reserved</p>
-            </div>
-            <div class="footer-links">
-                <a href="#">Cookies Policy</a>
-                <a href="#">Privacy</a>
-            </div>
-        </div>
-    </footer>
+    @include('components.footer', [])
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner">
-        <p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.</p>
-        <div class="cookie-buttons">
-            <button class="btn-ok">OK</button>
-            <button class="btn-learn">Learn more</button>
-        </div>
-    </div>
+    @include('components.cookies', [])
 
-		@vite([
-			'resources/js/script.js',
-		])
+    @vite([
+        'resources/js/script.js',
+    ])
 </body>
 </html>

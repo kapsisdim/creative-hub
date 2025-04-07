@@ -10,16 +10,28 @@
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-categories') }}"><i class="nav-icon la la-sitemap"></i> Portfolio categories</a></li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="nav-icon la la-hammer"></i> Clients</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="nav-icon la la-group"></i> Clients</a></li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('legal') }}"><i class="nav-icon la la-text"></i> Legals</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-camera"></i> Projects</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-service') }}"><i class="nav-icon la la-gear"></i> Our services</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('team-member') }}"><i class="nav-icon la la-users"></i> Team members</a></li>
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cubes"></i> Pages</a>
+    <ul class="nav-dropdown-items">
+				<li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-page') }}"><i class="nav-icon la la-cube"></i> Portfolio page</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-studio-page') }}"><i class="nav-icon la la-cube"></i> Our studio page</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="{{ backpack_url('about-page') }}"><i class="nav-icon la la-cube"></i> About page</a></li>
+    </ul>
+</li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-info-circle"></i> Info</a></li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-question"></i> Projects</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-service') }}"><i class="nav-icon la la-question"></i> Our services</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('team-member') }}"><i class="nav-icon la la-question"></i> Team members</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('about-page') }}"><i class="nav-icon la la-question"></i> About pages</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-studio-page') }}"><i class="nav-icon la la-question"></i> Our studio pages</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('social') }}"><i class="nav-icon la la-question"></i> Socials</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-page') }}"><i class="nav-icon la la-question"></i> Portfolio pages</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('social') }}"><i class="nav-icon la la-share"></i> Socials</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('legal') }}"><i class="nav-icon la la-file"></i> Legals</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('contact-form-entry') }}"><i class="nav-icon la la-envelope"></i> Contact form entries</a></li>

@@ -26,6 +26,9 @@ class AboutPage extends Model
         'sections',
         'team_title',
         'service_title',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
     // protected $hidden = [];
     // protected $dates = [];

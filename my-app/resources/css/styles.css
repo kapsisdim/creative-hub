@@ -29,6 +29,24 @@ a:hover {
     color: #E3FF04;
 }
 
+.alert-success {
+    color: #f7fcfb;
+    background-color: #42ba96;
+    border-color: #3ead8e;
+}
+
+.alert-warning {
+  color: #fffdf5;
+  background-color: #ffc107;
+  border-color: #ecb40a;
+}
+
+.alert-danger {
+  color: #fef8f8;
+  background-color: #df4759;
+  border-color: #cf4455;
+}
+
 .highlight {
     color: #E3FF04;
     font-weight: bold;
@@ -362,6 +380,15 @@ nav ul li a.active {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
+
+    .alert {
+        text-align: center;
+        margin: 0 auto 20px auto;
+    }
+
+    :is(ul) {
+        list-style: none;
+    }
 }
 
 .form-group {
