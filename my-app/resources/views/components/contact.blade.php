@@ -1,7 +1,7 @@
 <section id="contact" class="contact">
 		<div class="section-title">
-				<h2>Contact Us</h2>
-				<p>Contact us and we will reach out to you as soon as possible!</p>
+				<h2>{{ $homePage->contact_title }}</h2>
+				<p>{!! $homePage->contact_text !!}</p>
 		</div>
 		<div class="contact-form">
 				<form action=<?=$url?> method="POST">

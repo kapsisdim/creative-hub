@@ -6,11 +6,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Services\SaveFormEntryService;
+use App\Models\MenuItem;
+use App\Models\HomePage;
+use App\Models\Social;
+use App\Models\Info;
+use App\Models\OurStudioPage;
 
 class StudioPageController extends Controller
 {
     public function index(){
-        return view('pages.studio');
+        $active = 'OUR STUDIO';
+        $menuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
+        $footerItems = MenuItem::orderBy('lft', 'asc')->get();
+        $socials = Social::orderBy('lft', 'asc')->get();
+        $info = Info::first();
+        $homePage = HomePage::first();
+        $page = OurStudioPage::first();
+        $gallery = json_decode($page->gallery ?? '[]', true);
+        $images = collect($gallery)->map(function ($item) {
+            return \App\Models\ImageUpload::find($item['image_id']);
+        });
+
+        return view('pages.studio', [
+            'active' => $active,
+            'menuItems' => $menuItems,
+            'footerItems' => $footerItems,
+            'socials' => $socials,
+            'info' => $info,
+            'homePage' => $homePage,
+            'page' => $page,
+            'images' => $images,
+        ]);
     }
 
     /**

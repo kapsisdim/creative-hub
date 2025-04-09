@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakuna Creative Hub</title>
+    <meta property="og:type" content="front page" />
     @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
-    @include('components.header', [])
+    @include('components.header', [
+        'menuItems' => $menuItems,
+        'active' => $active,
+        'socials' => $socials,
+        'homePage' => $homePage,
+    ])
 
     <!-- Hero Section -->
     <section class="hero">
@@ -155,11 +161,16 @@
 
     <!-- Contact Section -->
     @include('components.contact', [
-        'url' => request()->getRequestUri() . '#contact'
+        'homePage' => $homePage,
+        'url' => request()->getRequestUri() . '#contact',
     ])
 
     <!-- Footer Section -->
-    @include('components.footer', [])
+    @include('components.footer', [
+        'homePage' => $homePage,
+        'footerItems' => $footerItems,
+        'info' => $info,
+    ])
 
     <!-- Cookie Consent Banner -->
     @include('components.cookies', [])

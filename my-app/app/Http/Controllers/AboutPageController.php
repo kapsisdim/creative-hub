@@ -3,11 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Services\SaveFormEntryService;
+use App\Models\MenuItem;
+use App\Models\HomePage;
+use App\Models\Social;
+use App\Models\Info;
+use App\Models\AboutPage;
 
 class AboutPageController extends Controller
 {
     public function index(){
-        return view('pages.about');
+        $active = 'ABOUT US';
+        $menuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
+        $footerItems = MenuItem::orderBy('lft', 'asc')->get();
+        $socials = Social::orderBy('lft', 'asc')->get();
+        $info = Info::first();
+        $homePage = HomePage::first();
+        $page = AboutPage::first();
+        return view('pages.about', [
+            'active' => $active,
+            'menuItems' => $menuItems,
+            'footerItems' => $footerItems,
+            'socials' => $socials,
+            'info' => $info,
+            'homePage' => $homePage,
+            'page' => $page,
+        ]);
     }
 
     /**

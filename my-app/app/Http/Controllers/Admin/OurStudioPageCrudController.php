@@ -63,7 +63,8 @@ class OurStudioPageCrudController extends CrudController
             'name' => 'title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ]
+            ],
+            'tab' => 'General',
         ]);
 
         CRUD::addField([
@@ -82,17 +83,71 @@ class OurStudioPageCrudController extends CrudController
                     'type' => 'summernote',
                     'options'       => [
                         'minheight' => 150,
-                        'height' => 200
+                        'height' => 200,
+                        'codeviewFilter' => false,
+                        'codeviewIframeFilter' => true,
+                        'disableDragAndDrop' => true,
+                        'dialogsInBody' => true,
+                        'toolbar' => [
+                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                            ['font', ['strikethrough', 'superscript', 'subscript']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['insert', ['link']],
+                            ['view', ['codeview']],
+                            ['color', ['color']],
+                        ],
                     ]
                 ],
             ],
+            'tab' => 'General',
         ]);
 
         CRUD::addField([
             'name' => 'gallery_title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ]
+            ],
+            'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'name' => 'gallery',
+            'type'  => 'repeatable',
+            'reorder' => true,
+            'subfields' => [
+                [
+                    'label' => "Gallery Image",
+                    'type'      => 'select2_from_array',
+                    'name'      => 'image_id', // the db column for the foreign key
+
+                    'options' => \App\Models\ImageUpload::pluck('title', 'id')->toArray(),
+                    'wrapper' => [
+                        'class' => 'form-group col-md-3',
+                    ]
+                ],
+            ],
+            'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_title',
+            'type' => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_keywords',
+            'type' => 'textarea',
+            'tab' => 'Seo',
         ]);
 
         /**
