@@ -59,7 +59,31 @@ class PortfolioPageCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(PortfolioPageRequest::class);
-        CRUD::field('title');
+        CRUD::addField([
+            'name' => 'title',
+            'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_title',
+            'type' => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_keywords',
+            'type' => 'textarea',
+            'tab' => 'Seo',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
