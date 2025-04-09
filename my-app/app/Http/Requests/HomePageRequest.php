@@ -27,7 +27,8 @@ class HomePageRequest extends FormRequest
         return [
             'title',
             'main_video_link',
-            'logo_image',
+            'logo_image_id',
+            'footer_logo_image_id',
             'contact_us_background_image',
             'we_create_background_image',
             'we_create_title',

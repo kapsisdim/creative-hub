@@ -39,14 +39,24 @@ class HomePageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        // CRUD::addColumn([
+        //     'label' => 'Image',
+        //     'name' => 'logo_image',
+        //     'type' => 'image',
+        // ]);
+        // CRUD::addColumn([
+        //     'label' => 'Image',
+        //     'name' => 'footer_logo_image',
+        //     'type' => 'image',
+        // ]);
         CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'logo_image',
+            'label' => "Logo",
+            'name' => "logo_image.image",
             'type' => 'image',
         ]);
         CRUD::addColumn([
-            'label' => 'Image',
-            'name' => 'footer_logo_image',
+            'label' => "Footer Logo",
+            'name' => "footer_logo_image.image",
             'type' => 'image',
         ]);
         CRUD::column('title');
@@ -71,28 +81,56 @@ class HomePageCrudController extends CrudController
     {
         CRUD::setValidation(HomePageRequest::class);
         CRUD::addField([
-            'label'        => "Logo Image",
-            'name'         => "logo_image",
-            'type'         => 'image',
-            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'withFiles' => [
-                'disk' => 'public', // the disk where file will be stored
-                'path' => 'images', // the path inside the disk where file will be stored
-            ],
-        ]);
+            'label' => "Logo",
+            'type'      => 'select2',
+            'name'      => 'logo_image_id', // the db column for the foreign key
 
-        CRUD::addField([
-            'label'        => "Footer Logo Image",
-            'name'         => "footer_logo_image",
-            'type'         => 'image',
-            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'withFiles' => [
-                'disk' => 'public', // the disk where file will be stored
-                'path' => 'images', // the path inside the disk where file will be stored
-            ],
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'logo_image',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\ImageUpload", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
         ]);
+        CRUD::addField([
+            'label' => "Footer Logo",
+            'type'      => 'select2',
+            'name'      => 'footer_logo_image_id', // the db column for the foreign key
+
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'footer_logo_image',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\ImageUpload", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+        ]);
+        // CRUD::addField([
+        //     'label'        => "Logo Image",
+        //     'name'         => "logo_image",
+        //     'type'         => 'image',
+        //     'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
+        //     'crop'         => true, // set to true to allow cropping, false to disable
+        //     'withFiles' => [
+        //         'disk' => 'public', // the disk where file will be stored
+        //         'path' => 'images', // the path inside the disk where file will be stored
+        //     ],
+        // ]);
+
+        // CRUD::addField([
+        //     'label'        => "Footer Logo Image",
+        //     'name'         => "footer_logo_image",
+        //     'type'         => 'image',
+        //     'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
+        //     'crop'         => true, // set to true to allow cropping, false to disable
+        //     'withFiles' => [
+        //         'disk' => 'public', // the disk where file will be stored
+        //         'path' => 'images', // the path inside the disk where file will be stored
+        //     ],
+        // ]);
         CRUD::addField([
             'name' => 'title',
             'wrapper' => [
