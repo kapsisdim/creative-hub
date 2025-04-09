@@ -24,8 +24,8 @@ class HomePage extends Model
     protected $fillable = [
         'title',
         'main_video_link',
-        'logo_image',
-        'footer_logo_image',
+        'logo_image_id',
+        'footer_logo_image_id',
         'we_create_title',
         'we_create_text',
         'our_clients_title',
@@ -50,6 +50,21 @@ class HomePage extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function logo_image()
+    {
+        return $this->belongsTo(ImageUpload::class, 'logo_image_id', 'id');
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function footer_logo_image()
+    {
+        return $this->belongsTo(ImageUpload::class, 'footer_logo_image_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
