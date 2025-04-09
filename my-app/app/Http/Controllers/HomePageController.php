@@ -6,11 +6,29 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Services\SaveFormEntryService;
+use App\Models\MenuItem;
+use App\Models\HomePage;
+use App\Models\Social;
+use App\Models\Info;
 
 class HomePageController extends Controller
 {
     public function index(){
-        return view('pages.index');
+        $active = 'HOME';
+        $menuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
+        $footerItems = MenuItem::orderBy('lft', 'asc')->get();
+        $socials = Social::orderBy('lft', 'asc')->get();
+        $info = Info::first();
+        $homePage = HomePage::first();
+
+        return view('pages.index', [
+            'active' => $active,
+            'menuItems' => $menuItems,
+            'footerItems' => $footerItems,
+            'socials' => $socials,
+            'info' => $info,
+            'homePage' => $homePage,
+        ]);
     }
 
     /**

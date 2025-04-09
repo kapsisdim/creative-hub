@@ -6,42 +6,27 @@
 
 <header>
 		<div class="logo">
-				<a href="index.html"><img src="https://ext.same-assets.com/2107753281/3380392345.png" alt="Hakuna Creative Hub"></a>
+				<a href="/"><img src="{{ json_decode($homePage->logo_image)->image }}" alt="{{ json_decode($homePage->logo_image)->caption }}"></a>
 		</div>
 		<div class="mobile-toggle">
 				<i class="fa fa-bars" aria-hidden="true"></i>
 		</div>
 		<nav class="menu-desktop">
 				<ul>
-						<li><a href="/" class="active">Home</a></li>
-						<li><a href="/about-us">About Us</a></li>
-						<li><a href="/our-studio">Our Studio</a></li>
-						<li><a href="/portfolio">Portfolio</a></li>
-						<li><a href="#contact">Contact</a></li>
+            @foreach ($menuItems as $item)
+							<li><a href="{{ $item->link }}" class="{{ $active == $item->title ? 'active' : '' }}">{{ $item->title }}</a></li>
+            @endforeach
 						<li>
-						<div class="social-divider">|</div>
+							<div class="social-divider">|</div>
 						</li>
 						<div class="social-icons">
+							@foreach ($socials as $social)
 								<li>
-										<a href="#"  title="facebook">
-												<i class="fa fa-facebook-square" aria-hidden="true"></i>
+										<a href="{{ $social->link }}" title="{{ $social->title }}">
+												<i class="{{ $social->icon }}" aria-hidden="true"></i>
 										</a>
 								</li>
-								<li>
-										<a href="#" title="twitter">
-												<i class="fa fa-twitter-square" aria-hidden="true"></i>
-										</a>
-								</li>
-								<li>
-										<a href="#" title="instagram">
-												<i class="fa fa-instagram" aria-hidden="true"></i>
-										</a>
-								</li>
-								<li>
-										<a href="#" title="youtube">
-												<i class="fa fa-youtube-square" aria-hidden="true"></i>
-										</a>
-								</li>
+							@endforeach
 						</div>
 				</ul>
 		</nav>

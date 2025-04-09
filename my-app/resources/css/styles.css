@@ -26,7 +26,7 @@ a {
 }
 
 a:hover {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 .alert-success {
@@ -48,7 +48,7 @@ a:hover {
 }
 
 .highlight {
-    color: #E3FF04;
+    color: #e9080c;
     font-weight: bold;
 }
 
@@ -145,7 +145,7 @@ header {
 }
 
 .mobile-toggle:hover {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 nav ul {
@@ -165,7 +165,7 @@ nav ul li a {
 }
 
 nav ul li a.active {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 /* Hero Video Section */
@@ -400,7 +400,7 @@ nav ul li a.active {
     width: 100%;
     padding: 15px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     color: #e9e6e3;
     font-family: 'Lato', sans-serif;
 }
@@ -426,8 +426,8 @@ nav ul li a.active {
 } */
 
 .submit-btn {
-    background-color: #E3FF04;
-    color: #000;
+    background-color: #e9080c;
+    color: white;
     border: none;
     padding: 15px 40px;
     font-size: 16px;
@@ -494,7 +494,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 /* Project Lightbox */
@@ -580,8 +580,8 @@ footer {
 }
 
 .btn-ok {
-    background-color: #E3FF04;
-    color: #000;
+    background-color: #e9080c;
+    color: white;
 }
 
 .btn-learn {
@@ -726,7 +726,7 @@ footer {
 }
 
 .service i {
-    color: #E3FF04;
+    color: #e9080c;
     margin-bottom: 20px;
 }
 
@@ -891,7 +891,7 @@ footer {
 }
 
 .search-box button:hover {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 /* Project Hero Styles */
@@ -997,7 +997,7 @@ footer {
 .project-details ul li strong {
     width: 100px;
     display: inline-block;
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 .project-description h3 {
@@ -1188,7 +1188,7 @@ footer {
 }
 
 .project-navigation a:hover {
-    color: #E3FF04;
+    color: #e9080c;
 }
 
 .prev-project i,

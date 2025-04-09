@@ -119,7 +119,19 @@ class ProjectCrudController extends CrudController
             'type' => 'summernote',
             'options'       => [
                 'minheight' => 150,
-                'height' => 200
+                'height' => 200,
+                'codeviewFilter' => false,
+                'codeviewIframeFilter' => true,
+                'disableDragAndDrop' => true,
+                'dialogsInBody' => true,
+                'toolbar' => [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['color', ['color']],
+                ],
             ]
         ]);
         CRUD::addField([
@@ -128,7 +140,19 @@ class ProjectCrudController extends CrudController
             'type' => 'summernote',
             'options'       => [
                 'minheight' => 150,
-                'height' => 200
+                'height' => 200,
+                'codeviewFilter' => false,
+                'codeviewIframeFilter' => true,
+                'disableDragAndDrop' => true,
+                'dialogsInBody' => true,
+                'toolbar' => [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['color', ['color']],
+                ],
             ]
         ]);
         CRUD::field('video');

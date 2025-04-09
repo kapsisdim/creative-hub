@@ -25,6 +25,7 @@ class OurStudioPage extends Model
         'title',
         'sections',
         'gallery_title',
+        'gallery',
         'meta_title',
         'meta_description',
         'meta_keywords',

@@ -39,16 +39,6 @@ class HomePageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        // CRUD::addColumn([
-        //     'label' => 'Image',
-        //     'name' => 'logo_image',
-        //     'type' => 'image',
-        // ]);
-        // CRUD::addColumn([
-        //     'label' => 'Image',
-        //     'name' => 'footer_logo_image',
-        //     'type' => 'image',
-        // ]);
         CRUD::addColumn([
             'label' => "Logo",
             'name' => "logo_image.image",
@@ -93,6 +83,7 @@ class HomePageCrudController extends CrudController
             // optional - manually specify the related model and attribute
             'model'     => "App\Models\ImageUpload", // related model
             'attribute' => 'title', // foreign key attribute that is shown to user
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'label' => "Footer Logo",
@@ -107,41 +98,21 @@ class HomePageCrudController extends CrudController
             // optional - manually specify the related model and attribute
             'model'     => "App\Models\ImageUpload", // related model
             'attribute' => 'title', // foreign key attribute that is shown to user
+            'tab' => 'General',
         ]);
-        // CRUD::addField([
-        //     'label'        => "Logo Image",
-        //     'name'         => "logo_image",
-        //     'type'         => 'image',
-        //     'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-        //     'crop'         => true, // set to true to allow cropping, false to disable
-        //     'withFiles' => [
-        //         'disk' => 'public', // the disk where file will be stored
-        //         'path' => 'images', // the path inside the disk where file will be stored
-        //     ],
-        // ]);
-
-        // CRUD::addField([
-        //     'label'        => "Footer Logo Image",
-        //     'name'         => "footer_logo_image",
-        //     'type'         => 'image',
-        //     'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
-        //     'crop'         => true, // set to true to allow cropping, false to disable
-        //     'withFiles' => [
-        //         'disk' => 'public', // the disk where file will be stored
-        //         'path' => 'images', // the path inside the disk where file will be stored
-        //     ],
-        // ]);
         CRUD::addField([
             'name' => 'title',
             'wrapper' => [
                 'class' => 'form-group col-md-6',
             ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'main_video_link',
             'wrapper' => [
                 'class' => 'form-group col-md-6',
             ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'we_create_title',
@@ -149,6 +120,7 @@ class HomePageCrudController extends CrudController
             'wrapper' => [
                 'class' => 'form-group col-md-6',
             ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'we_create_text',
@@ -156,8 +128,21 @@ class HomePageCrudController extends CrudController
             'type' => 'summernote',
             'options'       => [
                 'minheight' => 150,
-                'height' => 200
-            ]
+                'height' => 200,
+                'codeviewFilter' => false,
+                'codeviewIframeFilter' => true,
+                'disableDragAndDrop' => true,
+                'dialogsInBody' => true,
+                'toolbar' => [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['color', ['color']],
+                ],
+            ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'our_clients_title',
@@ -165,14 +150,28 @@ class HomePageCrudController extends CrudController
             'wrapper' => [
                 'class' => 'form-group col-md-6',
             ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'our_clients_text',
             'type' => 'summernote',
             'options'       => [
                 'minheight' => 150,
-                'height' => 200
-            ]
+                'height' => 200,
+                'codeviewFilter' => false,
+                'codeviewIframeFilter' => true,
+                'disableDragAndDrop' => true,
+                'dialogsInBody' => true,
+                'toolbar' => [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['color', ['color']],
+                ],
+            ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'contact_title',
@@ -180,14 +179,49 @@ class HomePageCrudController extends CrudController
             'wrapper' => [
                 'class' => 'form-group col-md-6',
             ],
+            'tab' => 'General',
         ]);
         CRUD::addField([
             'name' => 'contact_text',
             'type' => 'summernote',
             'options'       => [
                 'minheight' => 150,
-                'height' => 200
-            ]
+                'height' => 200,
+                'codeviewFilter' => false,
+                'codeviewIframeFilter' => true,
+                'disableDragAndDrop' => true,
+                'dialogsInBody' => true,
+                'toolbar' => [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']],
+                    ['color', ['color']],
+                ],
+            ],
+            'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_title',
+            'type' => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_keywords',
+            'type' => 'textarea',
+            'tab' => 'Seo',
         ]);
 
         /**

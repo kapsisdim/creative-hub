@@ -65,7 +65,8 @@ class AboutPageCrudController extends CrudController
             'name' => 'title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ]
+            ],
+            'tab' => 'General',
         ]);
 
         CRUD::addField([
@@ -84,24 +85,60 @@ class AboutPageCrudController extends CrudController
                     'type' => 'summernote',
                     'options'       => [
                         'minheight' => 150,
-                        'height' => 200
+                        'height' => 200,
+                        'codeviewFilter' => false,
+                        'codeviewIframeFilter' => true,
+                        'disableDragAndDrop' => true,
+                        'dialogsInBody' => true,
+                        'toolbar' => [
+                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                            ['font', ['strikethrough', 'superscript', 'subscript']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['insert', ['link']],
+                            ['view', ['codeview']],
+                            ['color', ['color']],
+                        ],
                     ]
                 ],
             ],
+            'tab' => 'General',
         ]);
 
         CRUD::addField([
             'name' => 'team_title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ]
+            ],
+            'tab' => 'General',
         ]);
 
         CRUD::addField([
             'name' => 'service_title',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
-            ]
+            ],
+            'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_title',
+            'type' => 'text',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'tab' => 'Seo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'meta_keywords',
+            'type' => 'textarea',
+            'tab' => 'Seo',
         ]);
 
         /**
