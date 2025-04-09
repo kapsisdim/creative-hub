@@ -10,13 +10,14 @@
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('portfolio-categories') }}"><i class="nav-icon la la-sitemap"></i> Portfolio categories</a></li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="nav-icon la la-group"></i> Clients</a></li>
-
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('project') }}"><i class="nav-icon la la-camera"></i> Projects</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('our-service') }}"><i class="nav-icon la la-gear"></i> Our services</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('team-member') }}"><i class="nav-icon la la-users"></i> Team members</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="nav-icon la la-group"></i> Clients</a></li>
+
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cubes"></i> Pages</a>
     <ul class="nav-dropdown-items">
