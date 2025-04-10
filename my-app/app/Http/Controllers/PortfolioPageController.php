@@ -10,18 +10,23 @@ use App\Models\MenuItem;
 use App\Models\HomePage;
 use App\Models\Social;
 use App\Models\Info;
-use App\Models\AboutPage;
+use App\Models\PortfolioPage;
+use App\Models\PortfolioCategory;
+use App\Models\Project;
 
 class PortfolioPageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $active = 'PORTFOLIO';
         $menuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
         $footerItems = MenuItem::orderBy('lft', 'asc')->get();
         $socials = Social::orderBy('lft', 'asc')->get();
         $info = Info::first();
         $homePage = HomePage::first();
-        $page = AboutPage::first();
+        $page = PortfolioPage::first();
+        $portfolioCategories = PortfolioCategory::get();
+        $projects = Project::get();
 
         return view('pages.portfolio', [
             'active' => $active,
@@ -31,16 +36,30 @@ class PortfolioPageController extends Controller
             'info' => $info,
             'homePage' => $homePage,
             'page' => $page,
+            'portfolioCategories' => $portfolioCategories,
+            'projects' => $projects,
         ]);
     }
 
-    public function project($project){
+    public function project($project)
+    {
+        $active = 'PORTFOLIO';
+        $menuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
+        $footerItems = MenuItem::orderBy('lft', 'asc')->get();
+        $socials = Social::orderBy('lft', 'asc')->get();
+        $info = Info::first();
+        $homePage = HomePage::first();
+        $project = Project::where('slug', $project)->first();
 
-        if ($project == 'project-video') {
-            return view('pages.project-video');
-        }
-
-        return view('pages.project');
+        return view('pages.project', [
+            'active' => $active,
+            'menuItems' => $menuItems,
+            'footerItems' => $footerItems,
+            'socials' => $socials,
+            'info' => $info,
+            'homePage' => $homePage,
+            'project' => $project,
+        ]);
     }
 
     /**
