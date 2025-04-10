@@ -10,6 +10,9 @@ use App\Models\MenuItem;
 use App\Models\HomePage;
 use App\Models\Social;
 use App\Models\Info;
+use App\Models\OurService;
+use App\Models\PortfolioCategory;
+use App\Models\Client;
 
 class HomePageController extends Controller
 {
@@ -20,6 +23,9 @@ class HomePageController extends Controller
         $socials = Social::orderBy('lft', 'asc')->get();
         $info = Info::first();
         $homePage = HomePage::first();
+        $categories = OurService::get();
+        $portfolioCategories = PortfolioCategory::get();
+        $clients = Client::get();
 
         return view('pages.index', [
             'active' => $active,
@@ -28,6 +34,9 @@ class HomePageController extends Controller
             'socials' => $socials,
             'info' => $info,
             'homePage' => $homePage,
+            'categories' => $categories,
+            'portfolioCategories' => $portfolioCategories,
+            'clients' => $clients,
         ]);
     }
 
