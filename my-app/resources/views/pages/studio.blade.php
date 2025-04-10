@@ -64,7 +64,7 @@
             @foreach (json_decode($page->sections) as $section)
             <div class="about-section">
                 <h2>{{ $section->title }}</h2>
-                <p>{!! $section->body !!}</p>
+                {!! $section->body !!}
             </div>
             @endforeach
             <div class="about-section studio-gallery">
