@@ -18,11 +18,12 @@
 						</div>
 				</div>
 				<div class="copyright">
-						<p>Copyright © 2025 • Hakuna Creative Hub • All rights reserved</p>
+						<p>Copyright © {{ date('Y') }} • Hakuna Creative Hub • All rights reserved</p>
 				</div>
 				<div class="footer-links">
-						<a href="#">Cookies Policy</a>
-						<a href="#">Privacy</a>
+					@foreach ($footerItems as $item)
+						<a href="{{ $item->link }}">{{ $item->title }}</a>
+					@endforeach
 				</div>
 		</div>
 </footer>

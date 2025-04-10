@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function () {
+    let hash = window.location.hash.replace('#', '') || 'all';
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === hash) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+});
 // Wait for the DOM to fully load
 document.addEventListener('DOMContentLoaded', function() {
     // Portfolio filtering
@@ -21,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize portfolio with all items visible
-    filterPortfolio('all');
+    let activeFilter = document.querySelector('.filter-btn.active');
+    let activeClass = activeFilter.getAttribute('data-filter');
+    filterPortfolio(activeClass);
 
     // Add click event to each filter button
     filterBtns.forEach(btn => {
@@ -134,77 +147,4 @@ document.addEventListener('DOMContentLoaded', function() {
             noResults.style.display = 'block';
         }
     }
-
-    // Lightbox for portfolio items
-    // const viewProjectLinks = document.querySelectorAll('.view-project');
-    // const lightbox = document.querySelector('.lightbox');
-    // const lightboxImage = document.querySelector('.lightbox-image');
-    // const closeBtn = document.querySelector('.lightbox-close');
-    // const prevBtn = document.querySelector('.lightbox-prev');
-    // const nextBtn = document.querySelector('.lightbox-next');
-
-    // // Store all gallery image sources for lightbox navigation
-    // const galleryImages = [];
-    // let currentIndex = 0;
-
-    // galleryItems.forEach(item => {
-    //     const bgImage = getComputedStyle(item.querySelector('.gallery-item-image')).backgroundImage;
-    //     const imageUrl = bgImage.replace('url("', '').replace('")', '');
-    //     galleryImages.push(imageUrl);
-    // });
-
-    // // Open lightbox when clicking on view project links
-    // viewProjectLinks.forEach((link, index) => {
-    //     link.addEventListener('click', function(e) {
-    //         e.preventDefault();
-
-    //         // Set current index and image
-    //         currentIndex = index;
-    //         lightboxImage.src = galleryImages[currentIndex];
-
-    //         // Open lightbox
-    //         lightbox.classList.add('active');
-    //     });
-    // });
-
-    // // Close lightbox
-    // closeBtn.addEventListener('click', function() {
-    //     lightbox.classList.remove('active');
-    // });
-
-    // // Close lightbox when clicking outside the image
-    // lightbox.addEventListener('click', function(e) {
-    //     if (e.target === lightbox) {
-    //         lightbox.classList.remove('active');
-    //     }
-    // });
-
-    // // Previous image
-    // prevBtn.addEventListener('click', function(e) {
-    //     e.stopPropagation();
-    //     currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    //     lightboxImage.src = galleryImages[currentIndex];
-    // });
-
-    // // Next image
-    // nextBtn.addEventListener('click', function(e) {
-    //     e.stopPropagation();
-    //     currentIndex = (currentIndex + 1) % galleryImages.length;
-    //     lightboxImage.src = galleryImages[currentIndex];
-    // });
-
-    // // Keyboard navigation
-    // document.addEventListener('keydown', function(e) {
-    //     if (!lightbox.classList.contains('active')) return;
-
-    //     if (e.key === 'Escape') {
-    //         lightbox.classList.remove('active');
-    //     } else if (e.key === 'ArrowLeft') {
-    //         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    //         lightboxImage.src = galleryImages[currentIndex];
-    //     } else if (e.key === 'ArrowRight') {
-    //         currentIndex = (currentIndex + 1) % galleryImages.length;
-    //         lightboxImage.src = galleryImages[currentIndex];
-    //     }
-    // });
 });

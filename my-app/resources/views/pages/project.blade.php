@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project - Hakuna Creative Hub</title>
+    <title>{{ $project->title }}</title>
+    <meta name="description" content="{{ $project->description }}" />
+    <meta name="og:site_name" content="{{ $homePage->title }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="{{ $project->title }}" />
+    <meta property="og:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:description" content="{{ $project->description }}" />
+    <meta name="twitter:title" content="{{ $project->title }}" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
     @vite(['resources/css/styles.css', 'resources/css/carousel.css', 'resources/css/project.css'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/css/splide.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -12,117 +21,81 @@
 
 <body>
     <!-- Header Section -->
-    @include('components.header', [])
+    @include('components.header')
 
-    <!-- myModal Section -->
-    <div id="myModal" class="modal">
-        <span class="close cursor" onclick="closeModal()">&times;</span>
-            <div class="modal-content">
+    @if ($project->video != null)
+        <!-- Video Section -->
+        <section class="about-page">
+            <div class="video-container">
+                <iframe
+                    src="{{ $project->video }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    @else
+        <!-- myModal Section -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                @foreach ($project->getImageUploads as $key => $image)
+                    <div class="mySlides">
+                        <div class="numbertext">{{ $key+1 }} / {{ count($project->getImageUploads) }}</div>
+                        <img src="{{ $image->image }}" style="width:100%">
+                    </div>
+                @endforeach
 
-            <div class="mySlides">
-            <div class="numbertext">1 / 4</div>
-            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
-            </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-            <div class="mySlides">
-            <div class="numbertext">2 / 4</div>
-            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
-            </div>
+                <div class="caption-container">
+                <p id="caption"></p>
+                </div>
 
-            <div class="mySlides">
-            <div class="numbertext">3 / 4</div>
-            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-            <div class="numbertext">4 / 4</div>
-            <img src="https://picsum.photos/id/1041/800/450" style="width:100%">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <div class="caption-container">
-            <p id="caption"></p>
-            </div>
-
-            <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(1)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(2)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit2.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(3)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit3.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
-            </div>
-            <div class="column">
-            <img class="demo cursor" src="https://picsum.photos/id/1041/800/450" style="width:100%" onclick="currentSlide(4)" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit4.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska">
+                @foreach ($project->getImageUploads as $key => $image)
+                    <div class="column">
+                        <img class="demo cursor" src="{{ $image->image }}" style="width:100%" onclick="currentSlide({{ $key+1 }})" alt="{!! $image->caption !!}">
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
 
-    <!-- Project Hero Section -->
-    <section class="about-page">
-        <div class="carousel-container">
-            <div class="carousel-wrapper">
-                <div id="main-carousel" class="splide" aria-label="Main Carousel">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide"  onclick="openModal();currentSlide(1)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" onclick="openModal();currentSlide(1)" alt="Image 1">
-                            </li>
-                            <li class="splide__slide" onclick="openModal();currentSlide(2)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 2.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 2">
-                            </li>
-                            <li class="splide__slide" onclick="openModal();currentSlide(3)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 3.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 3">
-                            </li>
-                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 4.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 4">
-                            </li>
-                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 5.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 5">
-                            </li>
-                            <li class="splide__slide" onclick="openModal();currentSlide(4)"
-                                data-desc="Lorem ipsum dolor sit amet consectetur adipisicing elit 6.
-                                        &#10;&#13;&#10;&#13; Photo: Aleksandra Boguslawska" >
-                                <img src="https://picsum.photos/id/1041/800/450" alt="Image 6">
-                            </li>
-                        </ul>
+        <!-- Project Hero Section -->
+        <section class="about-page">
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="main-carousel" class="splide" aria-label="Main Carousel">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                @foreach ($project->getImageUploads as $key => $image)
+                                    <li class="splide__slide"  onclick="openModal();currentSlide({{ $key+1 }})"
+                                        data-desc="{!! $image->caption !!}" >
+                                        <img src="{{ $image->image }}" onclick="openModal();currentSlide({{ $key+1 }})" alt="Image 1">
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="thumbnail-carousel" class="splide" aria-label="Thumbnail Carousel">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div id="thumbnail-carousel" class="splide" aria-label="Thumbnail Carousel">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                        </ul>
-                    </div>
+                <div class="description" id="image-description">
                 </div>
             </div>
-            <div class="description" id="image-description">
-            </div>
-        </div>
-    </section>
-
+        </section>
+    @endif
     <!-- Project Content Section -->
     <section class="project-page">
         <div class="about-section">
-            <h2>Southend Promo Clip</h2>
-            <p>Hakuna Creative Hub is a production company based in Athens, Greece. We were founded with a simple vision: to create unforgettable visual stories that resonate with audiences. Since our inception, we have grown to become one of the leading production houses in Greece, with a portfolio spanning from short films to commercial videos for international brands.</p>
-            <p>Our journey began with a small team of dedicated filmmakers who shared a passion for storytelling. Today, we've expanded our team to include some of the best talents in the industry, but our core values remain the same – commitment to quality, artistic integrity, and client satisfaction.</p>
+            <h2>{{ $project->title }}</h2>
+            {!! $project->body !!}
         </div>
     </section>
 

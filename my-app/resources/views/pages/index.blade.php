@@ -7,24 +7,20 @@
     <title>{{ $homePage->meta_title }}</title>
     <meta name="description" content="{{ $homePage->meta_description }}" />
     <meta name="og:site_name" content="{{ $homePage->title }}" />
-    <meta property="og:url" content="{{ URL::to('/our-studio') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:title" content="{{ $homePage->meta_title }}" />
     <meta property="og:image" content="{{ $homePage->logo }}" />
     <meta name="twitter:image" content="{{ $homePage->logo }}" />
     <meta name="twitter:description" content="{{ $homePage->meta_description }}" />
     <meta name="twitter:title" content="{{ $homePage->meta_title }}" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
     @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
-    @include('components.header', [
-        'menuItems' => $menuItems,
-        'active' => $active,
-        'socials' => $socials,
-        'homePage' => $homePage,
-    ])
+    @include('components.header')
 
     <!-- Hero Section -->
     <section class="hero">
@@ -62,7 +58,7 @@
     <section id="categories" class="categories">
         <div class="category-container">
             @foreach ($portfolioCategories as $portfolioCategory)
-            <a href="{{ $portfolioCategory->link }}">
+            <a href="/portfolio#{{ $portfolioCategory->title }}">
                 <div class="category" style="background-image: url('{{ $portfolioCategory->main_image->image }}')">
                     <div class="category-text">
                         <h3>{{ $portfolioCategory->title }}</h3>

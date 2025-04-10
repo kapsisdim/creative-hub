@@ -19,12 +19,7 @@
 </head>
 <body>
     <!-- Header Section -->
-    @include('components.header', [
-        'menuItems' => $menuItems,
-        'active' => $active,
-        'socials' => $socials,
-        'homePage' => $homePage,
-    ])
+    @include('components.header')
 
     <!-- About Hero Section -->
     <section class="page-hero">
@@ -39,8 +34,8 @@
             <div class="modal-content">
                 @foreach ($images as $key => $image)
                 <div class="mySlides">
-                    <div class="numbertext"><?=$key+1?> /<?=count($images)?></div>
-                    <img src="<?=$image->image?>" style="width:100%">
+                    <div class="numbertext">{{ $key+1 }} / {{ count($images) }}</div>
+                    <img src="{{ $image->image }}" style="width:100%">
                 </div>
                 @endforeach
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -50,9 +45,9 @@
             </div>
             @foreach ($images as $key => $image)
                 <div class="column">
-                    <img class="demo cursor" src="<?=$image->image?>"
-                        style="width:100%" onclick="currentSlide(<?=$key+1?>)"
-                        alt="<?=$image->caption?>">
+                    <img class="demo cursor" src="{{ $image->image }}"
+                        style="width:100%" onclick="currentSlide({{ $key+1 }})"
+                        alt="{!! $image->caption !!}">
                 </div>
             @endforeach
         </div>

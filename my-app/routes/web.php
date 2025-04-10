@@ -31,3 +31,5 @@ Route::post('/portfolio/{project}','App\Http\Controllers\PortfolioPageController
 
 Route::get('/our-studio','App\Http\Controllers\StudioPageController@index')->name('studio');
 Route::post('/our-studio','App\Http\Controllers\StudioPageController@store')->name('studio-contact');
+
+Route::get('/terms/{term}', 'App\Http\Controllers\TermController@show')->name('term');

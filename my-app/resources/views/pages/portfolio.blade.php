@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Hakuna Creative Hub</title>
-			@vite(['resources/css/styles.css'])
+    <title>{{ $page->meta_title }}</title>
+    <meta name="description" content="{{ $page->meta_description }}" />
+    <meta name="og:site_name" content="{{ $homePage->title }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="{{ $page->meta_title }}" />
+    <meta property="og:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:description" content="{{ $page->meta_description }}" />
+    <meta name="twitter:title" content="{{ $page->meta_title }}" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
+    @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
-    @include('components.header', [])
+    @include('components.header')
 
     <!-- Portfolio Hero Section -->
     <section class="page-hero">
         <div class="page-hero-content">
-            <h1>Our Portfolio</h1>
+            <h1>{{ $page->title }}</h1>
         </div>
     </section>
 
@@ -28,153 +37,27 @@
             </div>
         </div>
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="films">Films</button>
-            <button class="filter-btn" data-filter="music">Music Videos</button>
-            <button class="filter-btn" data-filter="commercial">Commercial</button>
-            <button class="filter-btn" data-filter="live">Live Coverage</button>
-            <button class="filter-btn" data-filter="corporate">Corporate</button>
+            <button class="filter-btn" data-filter="all">All Projects</button>
+            @foreach ($portfolioCategories as $category)
+                <button class="filter-btn" data-filter="{{ $category->title }}">{{ $category->title }}</button>
+            @endforeach
         </div>
     </section>
 
     <!-- Portfolio Gallery Section -->
     <section class="portfolio-gallery">
         <div class="gallery-container">
-            <!-- Films -->
-            <div class="gallery-item" data-category="films">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/2342637088/3656177962.jpeg')">
+            @foreach ($projects as $project)
+            <div class="gallery-item" data-category="{{ $project->category->title }}">
+                <div class="gallery-item-image" style="background-image: url('{{ $project->main_image->image }}')">
                     <div class="gallery-item-overlay">
-                        <h3>Clear Sky (2020) – Short Film</h3>
-                        <p>Dramatic short film exploring themes of loss and redemption</p>
-                        <a href="#" class="view-project">View Project</a>
+                        <h3>{{ $project->title }}</h3>
+                        {!! $project->description !!}
+                        <a href="/portfolio/{{ $project->slug }}" class="view-project">View Project</a>
                     </div>
                 </div>
             </div>
-            <div class="gallery-item" data-category="films">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1756813161/59921296.png')">
-                    <div class="gallery-item-overlay">
-                        <h3>Armani the Vlachs (2024) – Feature Documentary Trailer</h3>
-                        <p>Documentary exploring the cultural heritage of the Vlach people</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="films">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1322125992/2485103259.png')">
-                    <div class="gallery-item-overlay">
-                        <h3>Logger – Short Documentary (2024)</h3>
-                        <p>A day in the life of traditional Greek loggers</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Music Videos -->
-            <div class="gallery-item" data-category="music">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1886041691/4142856998.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Devil Rolling Dice – Prison Dead</h3>
-                        <p>Dark and atmospheric music video for metal band</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="music">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/4211829152/2656301216.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Snik x Noizy x Capo Plaza x Gue Pequeno – Colpo Grosso</h3>
-                        <p>High-energy hip-hop collaboration video</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="music">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1754202563/583134215.png')">
-                    <div class="gallery-item-overlay">
-                        <h3>On Thorns I Lay – Erevos</h3>
-                        <p>Atmospheric and cinematic music video for metal ballad</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Commercial Videos -->
-            <div class="gallery-item" data-category="commercial">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/3853592015/1439621118.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Pharmadvice.gr – Social Media Ad</h3>
-                        <p>Engaging social media advertisement for pharmacy website</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="commercial">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/2367875052/2998362177.png')">
-                    <div class="gallery-item-overlay">
-                        <h3>Puma – Moshoula Manousou</h3>
-                        <p>Athletic wear advertisement featuring Greek athlete</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="commercial">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1136245579/1577191004.png')">
-                    <div class="gallery-item-overlay">
-                        <h3>Puma – Panagiotis Trivizas</h3>
-                        <p>Dynamic sportswear commercial with Greek track star</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Live Coverage -->
-            <div class="gallery-item" data-category="live">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Athens Music Festival 2023</h3>
-                        <p>Multi-camera coverage of annual music festival</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="live">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/3557867413/416249408.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>UNDER ARMOUR | ITS WHAT YOU DO IN THE DARK | Nick Calathes</h3>
-                        <p>Live event coverage for Under Armour product launch</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Corporate Videos -->
-            <div class="gallery-item" data-category="corporate">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/3128301168/2430939757.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>SakisPack S.A. – Corporate Video</h3>
-                        <p>Corporate profile video for packaging industry leader</p>
-                        <a href="project-sakispack.html" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="corporate">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/2566908824/2973829888.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Gruppo Cucine – Corporate Video</h3>
-                        <p>Elegant corporate presentation for kitchen design company</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item" data-category="corporate">
-                <div class="gallery-item-image" style="background-image: url('https://ext.same-assets.com/3975139064/2049521435.jpeg')">
-                    <div class="gallery-item-overlay">
-                        <h3>Sede Vacante – Dead New World</h3>
-                        <p>Promotional video for corporate sustainability initiative</p>
-                        <a href="#" class="view-project">View Project</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 

@@ -6,19 +6,20 @@
     <title>{{ $page->meta_title }}</title>
     <meta name="description" content="{{ $page->meta_description }}" />
     <meta name="og:site_name" content="{{ $homePage->title }}" />
-    <meta property="og:url" content="{{ URL::to('/our-studio') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:title" content="{{ $page->meta_title }}" />
     <meta property="og:image" content="{{ $homePage->logo }}" />
     <meta name="twitter:image" content="{{ $homePage->logo }}" />
     <meta name="twitter:description" content="{{ $page->meta_description }}" />
     <meta name="twitter:title" content="{{ $page->meta_title }}" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
     @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
-    @include('components.header', [])
+    @include('components.header')
 
     <!-- About Hero Section -->
     <section class="page-hero">
