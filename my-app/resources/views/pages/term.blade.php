@@ -41,7 +41,7 @@
     @include('components.footer', [])
 
     <!-- Cookie Consent Banner -->
-    @include('components.cookies', [])
+    @include('cookie-consent::index')
 
     @vite([
         'resources/js/script.js',
