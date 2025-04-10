@@ -11,6 +11,8 @@ use App\Models\HomePage;
 use App\Models\Social;
 use App\Models\Info;
 use App\Models\AboutPage;
+use App\Models\TeamMember;
+use App\Models\OurService;
 
 class AboutPageController extends Controller
 {
@@ -22,6 +24,9 @@ class AboutPageController extends Controller
         $info = Info::first();
         $homePage = HomePage::first();
         $page = AboutPage::first();
+        $teamMembers = TeamMember::get();
+        $services = OurService::get();
+
         return view('pages.about', [
             'active' => $active,
             'menuItems' => $menuItems,
@@ -30,6 +35,8 @@ class AboutPageController extends Controller
             'info' => $info,
             'homePage' => $homePage,
             'page' => $page,
+            'teamMembers' => $teamMembers,
+            'services' => $services,
         ]);
     }
 

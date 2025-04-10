@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakuna Creative Hub</title>
     <meta property="og:type" content="front page" />
+    <title>{{ $homePage->meta_title }}</title>
+    <meta name="description" content="{{ $homePage->meta_description }}" />
+    <meta name="og:site_name" content="{{ $homePage->title }}" />
+    <meta property="og:url" content="{{ URL::to('/our-studio') }}" />
+    <meta property="og:title" content="{{ $homePage->meta_title }}" />
+    <meta property="og:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:image" content="{{ $homePage->logo }}" />
+    <meta name="twitter:description" content="{{ $homePage->meta_description }}" />
+    <meta name="twitter:title" content="{{ $homePage->meta_title }}" />
     @vite(['resources/css/styles.css'])
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
@@ -38,7 +46,7 @@
         </div> --}}
         <div class="video-container">
             <iframe
-                src="https://www.youtube.com/embed/zp4k7Rym39c?autoplay=1&loop=1&mute=1&playlist=zp4k7Rym39c"
+                src="{{ $homePage->main_video_link }}"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -53,41 +61,15 @@
     <!-- Categories Accordion Section -->
     <section id="categories" class="categories">
         <div class="category-container">
-            <a href="#">
-                <div class="category" style="background-image: url('https://ext.same-assets.com/2184578128/2150390874.jpeg')">
+            @foreach ($portfolioCategories as $portfolioCategory)
+            <a href="{{ $portfolioCategory->link }}">
+                <div class="category" style="background-image: url('{{ $portfolioCategory->main_image->image }}')">
                     <div class="category-text">
-                        <h3>FILMS</h3>
+                        <h3>{{ $portfolioCategory->title }}</h3>
                     </div>
                 </div>
             </a>
-            <a href="#">
-                <div class="category" style="background-image: url('https://ext.same-assets.com/3439631377/1204693802.jpeg')">
-                    <div class="category-text">
-                        <h3>CORPORATE VIDEOS</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="category" style="background-image: url('https://ext.same-assets.com/1773622176/1731801232.jpeg')">
-                    <div class="category-text">
-                        <h3>LIVE COVERAGE</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="category" style="background-image: url('https://ext.same-assets.com/3649478365/678810698.png')">
-                    <div class="category-text">
-                        <h3>COMMERCIAL VIDEOS</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="category" style="background-image: url('https://ext.same-assets.com/1306190714/3358697019.png')">
-                    <div class="category-text">
-                        <h3>MUSIC VIDEOS</h3>
-                    </div>
-                </div>
-            </a>
+            @endforeach
         </div>
     </section>
 
@@ -95,66 +77,25 @@
     <section class="about">
         <div class="about-content">
             <div class="create-text">
-                <h2>We create</h2>
+                <h2>{{ $homePage->we_create_title }}</h2>
             </div>
-            <p>We are a <span class="highlight">production company</span>, based in Athens, Greece. Our passion for <span class="highlight">creation</span> is what pushes us to achieve the best result for every project we take over. Our work contains commercials, music videos, films and corporate videos. We have the <span class="highlight">expertise</span> of filmmaking. We create <span class="highlight">memories</span>. We are Hakuna Creative Hub.</p>
+            {!! $homePage->we_create_text !!}
         </div>
     </section>
 
     {{-- CLients new --}}
     <section class="clients">
         <div class="section-title">
-            <h2>Our Clients</h2>
-            <p>We are working hard for your best results</p>
+            <h2>{{ $homePage->our_clients_title }}</h2>
+            {!! $homePage->our_clients_text !!}
         </div>
         <div class="slider">
             <div class="slide-track">
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
-                </div>
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1476299733/3743780450.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1625023224/998506371.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/1453404377/2052542915.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://ext.same-assets.com/3026492362/3220455577.png" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
-                </div>
+                @foreach ($clients as $client)
+                    <div class="slide">
+                        <img src="{{ $client->image }}" alt="{{ $client->title }}" />
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
