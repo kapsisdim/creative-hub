@@ -41,6 +41,11 @@ class OurStudioPageCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
+        CRUD::addColumn([
+            'label' => "Background Image",
+            'name' => "background_image.image",
+            'type' => 'image',
+        ]);
         CRUD::column('gallery_title');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -65,6 +70,25 @@ class OurStudioPageCrudController extends CrudController
                 'class' => 'form-group col-md-3',
             ],
             'tab' => 'General',
+        ]);
+
+        CRUD::addField([
+            'label' => "Background Image",
+            'type'      => 'select2',
+            'name'      => 'background_image_id', // the db column for the foreign key
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'General',
+
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'background_image',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\ImageUpload", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
         ]);
 
         CRUD::addField([

@@ -40,6 +40,11 @@ class PortfolioPageCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
+        CRUD::addColumn([
+            'label' => "Background Image",
+            'name' => "background_image.image",
+            'type' => 'image',
+        ]);
         CRUD::column('created_at');
         CRUD::column('updated_at');
 
@@ -62,6 +67,28 @@ class PortfolioPageCrudController extends CrudController
         CRUD::addField([
             'name' => 'title',
             'tab' => 'General',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
+
+        CRUD::addField([
+            'label' => "Background Image",
+            'type'      => 'select2',
+            'tab' => 'General',
+            'name'      => 'background_image_id', // the db column for the foreign key
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+
+            // optional
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'background_image',
+
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\ImageUpload", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
         ]);
 
         CRUD::addField([

@@ -29,6 +29,7 @@ class AboutPage extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'background_image_id',
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -44,6 +45,14 @@ class AboutPage extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function background_image()
+    {
+        return $this->belongsTo(ImageUpload::class, 'background_image_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
