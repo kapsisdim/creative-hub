@@ -22,7 +22,7 @@
     @include('components.header')
 
     <!-- About Hero Section -->
-    <section class="page-hero">
+    <section class="page-hero" style="background: black;">
         <div class="page-hero-content">
             <h1>{{ $term->title }}</h1>
         </div>
