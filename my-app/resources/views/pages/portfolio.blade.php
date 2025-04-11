@@ -22,7 +22,7 @@
     @include('components.header')
 
     <!-- Portfolio Hero Section -->
-    <section class="page-hero">
+    <section class="page-hero" style="background-image: url({{ $page->background_image->image }});">
         <div class="page-hero-content">
             <h1>{{ $page->title }}</h1>
         </div>
