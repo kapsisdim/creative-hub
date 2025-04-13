@@ -1,12 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Backpack\CRUD\app\Http\Controllers\Auth\LoginController;
 
 // --------------------------
 // Custom Backpack Routes
 // --------------------------
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
+
+Route::group([
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'middleware' =>array_merge(
+        (array) config('backpack.base.web_middleware', 'web')
+    ),
+], function () {
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('backpack.auth.login');
+    Route::post('login', [LoginController::class, 'login']);
+});
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
