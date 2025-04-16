@@ -65,7 +65,7 @@ class LegalCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],
@@ -118,7 +118,7 @@ class LegalCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],

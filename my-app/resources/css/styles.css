@@ -785,7 +785,7 @@ footer {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    height: 300px;
+    height: 175px;
 }
 
 .gallery-item-image {
@@ -837,7 +837,7 @@ footer {
     padding: 8px 15px;
     background-color: #e9080c;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     border-radius: 3px;
 }
