@@ -14,9 +14,9 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class HomePageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
@@ -134,7 +134,7 @@ class HomePageCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],
@@ -163,7 +163,7 @@ class HomePageCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],
@@ -192,7 +192,7 @@ class HomePageCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],

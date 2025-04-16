@@ -16,7 +16,7 @@ class ProjectCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
@@ -125,7 +125,7 @@ class ProjectCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],
@@ -146,7 +146,7 @@ class ProjectCrudController extends CrudController
                 'disableDragAndDrop' => true,
                 'dialogsInBody' => true,
                 'toolbar' => [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['style', ['bold', 'italic', 'underline', 'clear', 'fontsize']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link']],
