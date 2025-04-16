@@ -24,14 +24,15 @@ class ProjectRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-					'title',
-					'description',
-					'body',
-					'slug',
-					'status',
-					'category_id',
-					'main_image_id',
+        return
+        [
+            'title',
+            'description',
+            'body',
+            'slug',
+            'status',
+            'category_id',
+            'main_image_id',
         ];
     }
 
