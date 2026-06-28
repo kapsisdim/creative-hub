@@ -18,9 +18,9 @@ RUN `docker-compose exec app php artisan key:generate`
 
 RUN `docker-compose exec app php artisan storage:link`
 
-RUN `docker-compose exec app php npm install`
+RUN `docker-compose exec app npm install`
 
-RUN `docker-compose exec app php npm run build`
+RUN `docker-compose exec app npm run build`
 
 # DB setup guide
 

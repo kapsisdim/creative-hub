@@ -117,16 +117,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/js/splide.min.js"></script>
     <script>
-        document.getElementById('image-description').textContent =
-            document.querySelector(`#main-carousel .splide__slide:nth-child(1)`).dataset.desc;
-
+        {{-- document.getElementById('image-description').textContent =
+            document.querySelector(`#main-carousel .splide__slide:nth-child(1)`).dataset.desc; --}}
         document.addEventListener('DOMContentLoaded', function () {
             var mainCarousel = new Splide('#main-carousel', {
                 type: 'loop',
-                heightRatio: 0.5,
+                heightRatio: 1,
                 pagination: false,
                 arrows: true,
                 cover: true,
+                autoHeight: true,
             }).mount();
 
             var thumbnailCarousel = new Splide('#thumbnail-carousel', {
@@ -143,8 +143,8 @@
             mainCarousel.sync(thumbnailCarousel);
 
             mainCarousel.on('moved', function (index) {
-                document.getElementById('image-description').textContent =
-                    document.querySelector(`#main-carousel .splide__slide:nth-child(${index + 1})`).dataset.desc;
+                {{-- document.getElementById('image-description').textContent =
+                    document.querySelector(`#main-carousel .splide__slide:nth-child(${index + 1})`).dataset.desc; --}}
             });
         });
     </script>
